@@ -1,5 +1,5 @@
 package mru.toys.model;
 
-public class Toys {
+public abstract class Toys {
 
 }

@@ -1,5 +1,5 @@
 package mru.toys.model;
 
-public class Animals {
+public class Animals extends Toys {
 
 }
