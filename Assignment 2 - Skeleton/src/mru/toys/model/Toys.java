@@ -1,12 +1,12 @@
 package mru.toys.model;
 
 public abstract class Toys {
-	private Long serialNumber;
-	private String name;
-	private String brand;
-	private double price;
-	private int availableCount;
-	private int ageAppropriate;
+	public Long serialNumber;
+	public String name;
+	public String brand;
+	public double price;
+	public int availableCount;
+	public int ageAppropriate;
 	
 	public Toys (Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate) {
 		this.serialNumber = serialNumber;
