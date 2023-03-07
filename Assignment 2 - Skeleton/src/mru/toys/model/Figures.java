@@ -5,7 +5,7 @@ public class Figures extends Toys {
 	public char classification;
 	
 	public Figures(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate) {
-		super(serialNumber, name, brand, price, availableCount, ageAppropriate, , char classification);
+		super(serialNumber, name, brand, price, availableCount, ageAppropriate, char classification);
 	}
 
 	
