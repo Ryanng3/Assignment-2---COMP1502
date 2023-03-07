@@ -29,13 +29,17 @@ public class BoardGames extends Toys {
 	}
 	
 	public String getNumofPlayers() {
-		return minPlayers + " , " + maxPlayers;
+		return minPlayers + " - " + maxPlayers;
 	}
 	
 	public String[] getDesigners() {
 		return designers;
 	}
-	
+
+	public void setDesigners(String[] designers) {
+		this.designers = designers;
+	}
+
 	public String format() {
 		return serialNumber + "," + name + "," + brand + "," + price + "," + availableCount + "," + ageAppropriate + "," + numOfPlayers + ","  + designers;
 	}

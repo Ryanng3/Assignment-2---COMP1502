@@ -1,9 +1,6 @@
 package mru.toys.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import mru.toys.model.Toys;
 import mru.toys.view.AppMenu;
 
@@ -19,7 +16,7 @@ public class ToyManager {
 //		launchApplication();
 	}
 	
-	public void launchApplication() throws IOException {
+	public void launchApplication() {
 		boolean flag = true;
 		int option;
 		
@@ -28,7 +25,7 @@ public class ToyManager {
 			
 			switch(option) {
 			case 1:
-//				search();
+				search();
 				break;
 			case 2:
 //				addToy();
@@ -42,4 +39,24 @@ public class ToyManager {
 		}
 		
 	}
+	
+	public void search() {
+		int option = appMen.searchSubMenu();
+		
+		switch(option) {
+		case 1:
+//			searchBySN();
+			break;
+		case 2:
+//			searchByName();
+			break;
+		case 3:
+//			searchByType();
+			break;
+		case 4:
+			launchApplication();
+			break;
+		}
+	}
+	
 }
