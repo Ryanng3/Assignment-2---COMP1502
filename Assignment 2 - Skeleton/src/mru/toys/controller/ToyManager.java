@@ -9,14 +9,18 @@ public class ToyManager {
 	ArrayList<Toys> toy;
 	AppMenu appMen;
 	
-	public ToyManager() {
+	public ToyManager() {		//Constructor
 		toy = new ArrayList<>();
 		appMen = new AppMenu();
 //		loadData();
 //		launchApplication();
 	}
 	
-	public void launchApplication() {
+	/**
+	 * Based on the users choice, it will direct user to the next menu
+	 * Uses switch case to direct flow
+	 */
+	public void launchApplication() {		//Opens up the main menu and prompts user for selection
 		boolean flag = true;
 		int option;
 		
@@ -40,8 +44,13 @@ public class ToyManager {
 		
 	}
 	
-	public void search() {
-		int option = appMen.searchSubMenu();
+	
+	/**
+	 * Based on users choice, it will prompt the user the next menu
+	 * Uses switch case to direct flow
+	 */
+	public void search() {						
+		int option = appMen.searchSubMenu();	//Prompts user the search menu
 		
 		switch(option) {
 		case 1:
