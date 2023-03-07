@@ -7,9 +7,6 @@ public class BoardGames extends Toys {
 	public String[] designers;
 	public String numOfPlayers;
 	
-	
-	//number of players into one string
-	
 	public BoardGames(Long serialNumber, String name, String brand, double price, int availableCount,
 			int ageAppropriate, int minPlayers, int maxPlayers, String designers, String numOfPlayers) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);;
@@ -26,6 +23,15 @@ public class BoardGames extends Toys {
 		return maxPlayers;
 	}
 	
+	public void setNumOfPlayers(int minPlayers, int maxPlayers) {
+		this.minPlayers = minPlayers;
+		this.maxPlayers = maxPlayers;
+	}
+	
+	public String getNumofPlayers() {
+		return minPlayers + " , " + maxPlayers;
+	}
+	
 	public String[] getDesigners() {
 		return designers;
 	}
@@ -35,7 +41,7 @@ public class BoardGames extends Toys {
 	}
 	
 	public String toString() {
-		return "Category: Board Game," + "Serial Number: " + serialNumber + "," + "Name: " + name + "," + "Brand: " + brand + ","+ "Price: " + price + "," + "Available Count: " + availableCount + "," + "Age Appropriate: " + ageAppropriate + "," + "Number of Players: " + numOfPlayers + "," + "Designers: " + designers;
+		return "Category: Board Game, " + "Serial Number: " + serialNumber + "," + "Name: " + name + "," + "Brand: " + brand + ","+ "Price: " + price + "," + "Available Count: " + availableCount + "," + "Age Appropriate: " + ageAppropriate + "," + "Number of Players: " + numOfPlayers + "," + "Designers: " + designers;
 	}
 	
 	
