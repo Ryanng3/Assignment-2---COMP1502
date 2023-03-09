@@ -8,10 +8,9 @@ public class BoardGames extends Toys {
 	public String numOfPlayers;
 	
 	public BoardGames(Long serialNumber, String name, String brand, double price, int availableCount,
-			int ageAppropriate, int minPlayers, int maxPlayers, String designers, String numOfPlayers) {
-		super(serialNumber, name, brand, price, availableCount, ageAppropriate);;
-		this.minPlayers = minPlayers;
-		this.maxPlayers = maxPlayers;
+			int ageAppropriate, String numOfPlayers, String designers) {
+		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
+		this.numOfPlayers = numOfPlayers;
 		this.designers = designers.split(",");
 	}
 	
