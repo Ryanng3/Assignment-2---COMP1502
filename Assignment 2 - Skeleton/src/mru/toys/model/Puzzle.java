@@ -16,7 +16,7 @@ public class Puzzle extends Toys {
 	}
 	
 	public String format() {
-		return serialNumber + "," + name + "," + brand + "," + price + "," + availableCount + "," + ageAppropriate + "," + puzzleTypeChar;
+		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + puzzleTypeChar;
 	}
 	
 	public String toString() {
@@ -50,7 +50,7 @@ public class Puzzle extends Toys {
 			
 		}
 		
-		return "Category: Puzzle," + "Serial Number: " + serialNumber + "," + "Name: " + name + "," + "Brand: " + brand + ","+ "Price: " + price + "," + "Available Count: " + availableCount + "," + "Age Appropriate: " + ageAppropriate + "," + "Puzzle Type: " + puzzleTypeFull;
+		return "Category: Puzzle," + "Serial Number: " + serialNumber + ", " + "Name: " + name + ", " + "Brand: " + brand + ", "+ "Price: " + price + ", " + "Available Count: " + availableCount + ", " + "Age Appropriate: " + ageAppropriate + ", " + "Puzzle Type: " + puzzleTypeFull;
 	}
 
 }

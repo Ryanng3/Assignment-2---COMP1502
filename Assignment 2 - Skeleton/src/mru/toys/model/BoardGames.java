@@ -40,11 +40,11 @@ public class BoardGames extends Toys {
 	}
 
 	public String format() {
-		return serialNumber + "," + name + "," + brand + "," + price + "," + availableCount + "," + ageAppropriate + "," + numOfPlayers + ","  + designers;
+		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + numOfPlayers + ", "  + designers;
 	}
 	
 	public String toString() {
-		return "Category: Board Game, " + "Serial Number: " + serialNumber + "," + "Name: " + name + "," + "Brand: " + brand + ","+ "Price: " + price + "," + "Available Count: " + availableCount + "," + "Age Appropriate: " + ageAppropriate + "," + "Number of Players: " + numOfPlayers + "," + "Designers: " + designers;
+		return "Category: Board Game, " + "Serial Number: " + serialNumber + ", " + "Name: " + name + ", " + "Brand: " + brand + ", "+ "Price: " + price + ", " + "Available Count: " + availableCount + ", " + "Age Appropriate: " + ageAppropriate + ", " + "Number of Players: " + numOfPlayers + ", " + "Designers: " + designers;
 	}
 	
 	

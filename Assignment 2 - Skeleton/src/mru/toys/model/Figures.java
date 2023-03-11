@@ -15,7 +15,7 @@ public class Figures extends Toys {
 	}
 
 	public String format() {
-		return serialNumber + "," + name + "," + brand + "," + price + "," + availableCount + "," + ageAppropriate + "," + classification;
+		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + classification;
 	}
 	
 	public String toString() {
@@ -38,7 +38,7 @@ public class Figures extends Toys {
 			break;
 		}
 		
-		return "Category: Figures," + "Serial Number: " + serialNumber + "," + "Name: " + name + "," + "Brand: " + brand + ","+ "Price: " + price + "," + "Available Count: " + availableCount + "," + "Age Appropriate: " + ageAppropriate + "," + "Classification: " + classi;
+		return "Category: Figures," + "Serial Number: " + serialNumber + ", " + "Name: " + name + ", " + "Brand: " + brand + ", "+ "Price: " + price + ", " + "Available Count: " + availableCount + ", " + "Age Appropriate: " + ageAppropriate + ", " + "Classification: " + classi;
 	}
 
 	
