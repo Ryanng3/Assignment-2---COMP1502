@@ -5,19 +5,43 @@ public class Puzzle extends Toys {
 	public char puzzleTypeChar;
 	public String puzzleTypeFull;
 	
+	/**
+	 * 
+	 * @param serialNumber
+	 * @param name
+	 * @param brand
+	 * @param price
+	 * @param availableCount
+	 * @param ageAppropriate
+	 * @param puzzleType
+	 */
+	
 
 	public Puzzle(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char puzzleType) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		this.puzzleTypeChar = puzzleType;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public char getPuzzleType() {
 		return puzzleTypeChar;
 	}
 	
+	/**
+	 * 
+	 */
+	
 	public String format() {
 		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + puzzleTypeChar;
 	}
+	
+	/**
+	 * 
+	 */
 	
 	public String toString() {
 		

@@ -12,10 +12,19 @@ public class AppMenu {
 	char figureClassi;
 	char animalSize;
 	char puzzleType;
+	int input;
+	
+	/**
+	 * 
+	 */
 	
 	public AppMenu() {
 		scanner = new Scanner(System.in);
 	}
+	
+	/**
+	 * 
+	 */
 
 	public void openingMsg() {
 		
@@ -24,6 +33,10 @@ public class AppMenu {
 						+  "*****************************************************\n");
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public int showMainMenu() {
 		
@@ -34,18 +47,26 @@ public class AppMenu {
 						+  "(4)  Save & Exit\n"
 						+  "Enter Option: \n");
 		
-		String input = scanner.next();
+		if (scanner.hasNextInt()) {
+			
+			this.input = scanner.nextInt();
 		
-		//validating other input 
-		
-		while (!input.equals("1") || !input.equals("2") || !input.equals("3") || !input.equals("4")) {
-			System.out.println("This is not a valid option! Try again.\n"
-							+  "Enter option:");
+			if (input > 4) {
+				System.out.println("This is not a valid option! Try again.");
+			
+			} else{
+				System.out.println("This is not an Integer number! Try again.);");
+			}
 		}
 		
-		return Integer.parseInt(input);
+		return input;
 		
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public int showSubMenu() {
 		
@@ -56,36 +77,59 @@ public class AppMenu {
 						+  "(4)  Back to Main Menu\n"
 						+  "Enter Option: \n");
 		
-		String input = scanner.next();
+		if (scanner.hasNextInt()) {
+			
+			this.input = scanner.nextInt();
 		
-		//validating other input 
-		
-		while (!input.equals("1") || !input.equals("2") || !input.equals("3") || !input.equals("4")) {
-			System.out.println("This is not a valid option! Try again.\n"
-							+  "Enter option:");
+			if (input > 4) {
+				System.out.println("This is not a valid option! Try again.");
+			
+			} else{
+				System.out.println("This is not an Integer number! Try again.);");
+			}
 		}
 		
-		return Integer.parseInt(input);
+		return input;
 
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public String searchSerialNumber() {
 		System.out.println("Enter Serial Number: ");
-		serialNumber = scanner.next();
+		this.serialNumber = scanner.next();
 		return serialNumber;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public String searchToyName() {
 		System.out.println("Enter Toy Name: ");
-		toyName = scanner.next();
+		this.toyName = scanner.next();
 		return toyName;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public String searchType() {
 		System.out.println("Enter Toy Type: ");
-		toyType = scanner.next();
+		this.toyType = scanner.next();
 		return toyType;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public String addNewToy() {
 		
@@ -122,6 +166,11 @@ public class AppMenu {
 		
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public char figureMenu() {
 		
 		System.out.println("Enter Figure Classification: \n" 
@@ -129,10 +178,15 @@ public class AppMenu {
 						+ "Doll (D)\n" 
 						+ "Historic (H)\n");
 		
-		figureClassi = scanner.next().charAt(0);
+		this.figureClassi = scanner.next().charAt(0);
 		
 		return figureClassi;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public char animalsMenu() {
 		
@@ -141,10 +195,15 @@ public class AppMenu {
 						+ "Medium (M)" 
 						+ "Large (L)");
 		
-		animalSize = scanner.next().charAt(0);
+		this.animalSize = scanner.next().charAt(0);
 		
 		return animalSize;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 
 	public char puzzlesMenu() {
 		
@@ -155,15 +214,19 @@ public class AppMenu {
 						+ "Trivia (T)" 
 						+ "Riddle (R)");
 		
-		 puzzleType = scanner.next().charAt(0);
+		 this.puzzleType = scanner.next().charAt(0);
 		
 		return puzzleType;
 	}
+	
+	/**
+	 * 
+	 */
 		
 	public void closingMsg() {
 		
 		System.out.println("*****************************************************\n"
-						+  "***             THANK YOU FOR VISITING            ***\n"
+						+  "*                THANK YOU FOR VISITING             *\n"
 						+  "*****************************************************\n");
 	}
 	
