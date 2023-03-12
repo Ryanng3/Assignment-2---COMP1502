@@ -15,7 +15,7 @@ public class AppMenu {
 	int input;
 	
 	/**
-	 * 
+	 * creating a instance of Scanner and assigning it to a variable
 	 */
 	
 	public AppMenu() {
@@ -23,7 +23,7 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
+	 * Void method that prints a welcome message 
 	 */
 
 	public void openingMsg() {
@@ -33,8 +33,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Displaying the main menu for users and validating their input 
+	 * @return the user's input as an int 
 	 */
 	
 	public int showMainMenu() {
@@ -58,8 +58,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Displaying the sub menu for users and validating their input 
+	 * @return the user's input as an int
 	 */
 	
 	public int showSubMenu() {
@@ -83,8 +83,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for serial number of toy 
+	 * @return the entered serial number as a string 
 	 */
 	
 	public String searchSerialNumber() {
@@ -95,8 +95,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for name of toy 
+	 * @return the entered toy name as a string 
 	 */
 	
 	public String searchToyName() {
@@ -107,8 +107,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for type of toy 
+	 * @return the entered type of toy as a string
 	 */
 	
 	public String searchType() {
@@ -119,8 +119,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking the user for the new toy's characteristics and assigning to individual variables 
+	 * @return the new toy's characteristics all in one variable 
 	 */
 	
 	public String addNewToy() {
@@ -159,8 +159,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for the figure's classification
+	 * @return the figure's classification as a char
 	 */
 	
 	public char figureMenu() {
@@ -174,8 +174,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for the animal's size 
+	 * @return the animal's size as a char
 	 */
 	
 	public char animalsMenu() {
@@ -189,8 +189,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Asking user for the puzzle's type 
+	 * @return the puzzle's type as a char
 	 */
 
 	public char puzzlesMenu() {
@@ -206,7 +206,7 @@ public class AppMenu {
 	}
 	
 	/**
-	 * 
+	 * Void method that prints a closing message 
 	 */
 		
 	public void closingMsg() {
