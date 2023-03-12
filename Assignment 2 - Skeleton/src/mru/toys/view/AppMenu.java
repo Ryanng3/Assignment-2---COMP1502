@@ -27,7 +27,6 @@ public class AppMenu {
 	 */
 
 	public void openingMsg() {
-		
 		System.out.println("*****************************************************\n"
 						+  "*            WELCOME TO TOY STORE COMPANY           *\n"
 						+  "*****************************************************\n");
@@ -48,19 +47,14 @@ public class AppMenu {
 						+  "Enter Option: \n");
 		
 		if (scanner.hasNextInt()) {
-			
 			this.input = scanner.nextInt();
-		
 			if (input > 4) {
 				System.out.println("This is not a valid option! Try again.");
-			
 			} else{
 				System.out.println("This is not an Integer number! Try again.);");
 			}
 		}
-		
 		return input;
-		
 	}
 	
 	/**
@@ -78,19 +72,14 @@ public class AppMenu {
 						+  "Enter Option: \n");
 		
 		if (scanner.hasNextInt()) {
-			
 			this.input = scanner.nextInt();
-		
 			if (input > 4) {
 				System.out.println("This is not a valid option! Try again.");
-			
 			} else{
 				System.out.println("This is not an Integer number! Try again.);");
 			}
 		}
-		
 		return input;
-
 	}
 	
 	/**
@@ -101,6 +90,7 @@ public class AppMenu {
 	public String searchSerialNumber() {
 		System.out.println("Enter Serial Number: ");
 		this.serialNumber = scanner.next();
+		//validate
 		return serialNumber;
 	}
 	
@@ -112,6 +102,7 @@ public class AppMenu {
 	public String searchToyName() {
 		System.out.println("Enter Toy Name: ");
 		this.toyName = scanner.next();
+		//validate
 		return toyName;
 	}
 	
@@ -123,6 +114,7 @@ public class AppMenu {
 	public String searchType() {
 		System.out.println("Enter Toy Type: ");
 		this.toyType = scanner.next();
+		//validate
 		return toyType;
 	}
 	
@@ -160,8 +152,8 @@ public class AppMenu {
 		System.out.println("Enter Designer Names (Use ',' to separate the names if there is more than one name): ");
 		String designers = scanner.next();
 		
+		//validate
 		newToy = serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + appropriateAge + ", " + minPlayers + ", " + maxPlayers + ", " + designers;
-	
 		return newToy;
 		
 	}
@@ -172,14 +164,12 @@ public class AppMenu {
 	 */
 	
 	public char figureMenu() {
-		
 		System.out.println("Enter Figure Classification: \n" 
 						+ "Action (A)\n" 
 						+ "Doll (D)\n" 
 						+ "Historic (H)\n");
-		
 		this.figureClassi = scanner.next().charAt(0);
-		
+		//validate
 		return figureClassi;
 	}
 	
@@ -189,14 +179,12 @@ public class AppMenu {
 	 */
 	
 	public char animalsMenu() {
-		
 		System.out.println("Enter Animal Size: " 
 						+ "Small (S)" 
 						+ "Medium (M)" 
 						+ "Large (L)");
-		
 		this.animalSize = scanner.next().charAt(0);
-		
+		//validate
 		return animalSize;
 	}
 	
@@ -206,16 +194,14 @@ public class AppMenu {
 	 */
 
 	public char puzzlesMenu() {
-		
 		System.out.println("Enter Puzzle-Type: " 
 						+ "Mechanical (M)" 
 						+ "Cryptic (C)" 
 						+ "Logic (L)" 
 						+ "Trivia (T)" 
 						+ "Riddle (R)");
-		
 		 this.puzzleType = scanner.next().charAt(0);
-		
+		 //validate
 		return puzzleType;
 	}
 	
@@ -224,7 +210,6 @@ public class AppMenu {
 	 */
 		
 	public void closingMsg() {
-		
 		System.out.println("*****************************************************\n"
 						+  "*                THANK YOU FOR VISITING             *\n"
 						+  "*****************************************************\n");

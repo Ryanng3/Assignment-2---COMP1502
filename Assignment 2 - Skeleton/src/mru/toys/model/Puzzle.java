@@ -6,14 +6,14 @@ public class Puzzle extends Toys {
 	public String puzzleTypeFull;
 	
 	/**
-	 * 
-	 * @param serialNumber
-	 * @param name
-	 * @param brand
-	 * @param price
-	 * @param availableCount
-	 * @param ageAppropriate
-	 * @param puzzleType
+	 * Retrieving variables from Toys superclass and instantiating the local variables 
+	 * @param serialNumber the puzzle's serial number 
+	 * @param name the puzzle's name
+	 * @param brand the puzzle's brand
+	 * @param price the puzzle's cost
+	 * @param availableCount the puzzle's available count in stock 
+	 * @param ageAppropriate the puzzle's appropriate age 
+	 * @param puzzleType the puzzle's type 
 	 */
 	
 
@@ -22,9 +22,8 @@ public class Puzzle extends Toys {
 		this.puzzleTypeChar = puzzleType;
 	}
 	
-	/**
-	 * 
-	 * @return
+	/** 
+	 * @return the puzzle's type as a character 
 	 */
 	
 	public char getPuzzleType() {
@@ -32,17 +31,20 @@ public class Puzzle extends Toys {
 	}
 	
 	/**
-	 * 
+	 * @return the puzzle's characteristics as a string 
+	 * overrides the same method in the Toys superclass
 	 */
-	
+	@Override
 	public String format() {
 		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + puzzleTypeChar;
 	}
 	
 	/**
-	 * 
+	 * takes in the char puzzle type and determine's the name in full form 
+	 * @return the puzzle's characteristics as a string 
+	 * overrides the same method in the Toys superclass
 	 */
-	
+	@Override
 	public String toString() {
 		
 		switch (puzzleTypeChar) {

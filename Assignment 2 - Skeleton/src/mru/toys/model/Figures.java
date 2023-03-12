@@ -6,14 +6,14 @@ public class Figures extends Toys {
 	public String classi;
 	
 	/**
-	 * 
-	 * @param serialNumber
-	 * @param name
-	 * @param brand
-	 * @param price
-	 * @param availableCount
-	 * @param ageAppropriate
-	 * @param classification
+	 * Retrieving variables from Toys superclass and instantiating the classi variable
+	 * @param serialNumber the figures's serial number 
+	 * @param name the figures's name
+	 * @param brand the figures's brand
+	 * @param price the figures's cost
+	 * @param availableCount the figures's count in stock 
+	 * @param ageAppropriate the figures's appropriate age to use 
+	 * @param classification the figures's classification
 	 */
 	
 	public Figures(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char classification) {
@@ -22,7 +22,7 @@ public class Figures extends Toys {
 	}
 	
 	/**
-	 * 
+	 * @return classification the figure's classification as a char
 	 */
 	
 	public char getClassification() {
@@ -30,17 +30,20 @@ public class Figures extends Toys {
 	}
 	
 	/**
-	 * 
+	 * @return the figures's characteristics as a string
+	 * overrides the same method in the Toys superclass
 	 */
-
+	@Override
 	public String format() {
 		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + classification;
 	}
 	
 	/**
-	 * 
+	 * takes in the char classification and determine's the name in full form 
+	 * @return the figure's characteristics as a string 
+	 * overrides the same method in the Toys superclass
 	 */
-	
+	@Override
 	public String toString() {
 		
 		switch (classification) {
