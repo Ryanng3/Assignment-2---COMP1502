@@ -1,5 +1,5 @@
 package mru.toys.exceptions;
 
-public class ToyException {
+public class ToyException extends Exception{
 
 }
