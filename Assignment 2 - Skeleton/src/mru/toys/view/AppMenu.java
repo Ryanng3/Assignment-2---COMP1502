@@ -8,11 +8,12 @@ public class AppMenu {
 	String newToy;
 	String serialNumber;
 	String toyName;
-	String toyType;
+	char toyType;
 	char figureClassi;
 	char animalSize;
 	char puzzleType;
 	int input;
+	char choice;
 	
 	/**
 	 * creating a instance of Scanner and assigning it to a variable
@@ -39,22 +40,24 @@ public class AppMenu {
 	
 	public int showMainMenu() {
 		
-		System.out.println("How We May Help You?\n" 
+		System.out.println("\nHow We May Help You?\n" 
 						+  "(1)  Search Inventory and Purchase Toy\n"
 						+  "(2)  Add New Toy\n"
 						+  "(3)  Remove Toy\n"
-						+  "(4)  Save & Exit\n"
-						+  "Enter Option: \n");
+						+  "(4)  Save & Exit\n");
+		System.out.print("Enter Option: ");
 		
-		if (scanner.hasNextInt()) {
-			this.input = scanner.nextInt();
-			if (input > 4) {
-				System.out.println("This is not a valid option! Try again.");
-			} else{
-				System.out.println("This is not an Integer number! Try again.);");
+			input = scanner.nextInt();
+			if (input != 1 && input!= 2 && input!= 3 && input!= 4) {
+				System.out.print("This is not a valid option! Try again.");
+				input = scanner.nextInt();
+			} else if (!Integer.toString(input).equals("1") && !Integer.toString(input).equals("2") && !Integer.toString(input).equals("3") && !Integer.toString(input).equals("4")){
+				System.out.print("This is not an Integer number! Try again.);");
+				input = scanner.nextInt();
 			}
-		}
+		
 		return input;
+		
 	}
 	
 	/**
@@ -64,12 +67,13 @@ public class AppMenu {
 	
 	public int showSubMenu() {
 		
-		System.out.println("Find Toys With:\n" 
+		System.out.println("\nFind Toys With:\n" 
 						+  "(1)  Serial Number (SN) \n"
 						+  "(2)  Toy Name\n"
 						+  "(3)  Type\n"
-						+  "(4)  Back to Main Menu\n"
-						+  "Enter Option: \n");
+						+  "(4)  Back to Main Menu\n");
+		System.out.print("Enter Option: ");
+						
 		
 		if (scanner.hasNextInt()) {
 			this.input = scanner.nextInt();
@@ -88,7 +92,7 @@ public class AppMenu {
 	 */
 	
 	public String searchSerialNumber() {
-		System.out.println("Enter Serial Number: ");
+		System.out.println("\nEnter Serial Number: ");
 		this.serialNumber = scanner.next();
 		//validate
 		return serialNumber;
@@ -100,7 +104,7 @@ public class AppMenu {
 	 */
 	
 	public String searchToyName() {
-		System.out.println("Enter Toy Name: ");
+		System.out.print("\nEnter Toy Name: ");
 		this.toyName = scanner.next();
 		//validate
 		return toyName;
@@ -111,9 +115,14 @@ public class AppMenu {
 	 * @return the entered type of toy as a string
 	 */
 	
-	public String searchType() {
-		System.out.println("Enter Toy Type: ");
-		this.toyType = scanner.next();
+	public char searchType() {
+		System.out.println("\nEnter Toy Type:\n"
+						+  "(F) Figures"
+						+  "(A) Animals"
+						+  "(P) Puzzles"
+						+  "(B) BoardGames");
+		System.out.print("\nEnter Option: ");
+		this.toyType = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return toyType;
 	}
@@ -125,31 +134,31 @@ public class AppMenu {
 	
 	public String addNewToy() {
 		
-		System.out.println("Enter Serial Number: ");
+		System.out.print("Enter Serial Number: ");
 		String serialNumber = scanner.next();
 		
-		System.out.println("Enter Toy Name: ");
+		System.out.print("Enter Toy Name: ");
 		String name = scanner.next();
 		
-		System.out.println("Enter Toy Brand: ");
+		System.out.print("Enter Toy Brand: ");
 		String brand = scanner.next();
 		
-		System.out.println("Enter Toy Price: ");
+		System.out.print("Enter Toy Price: ");
 		String price = scanner.next();
 		
-		System.out.println("Enter Available Counts: ");
+		System.out.print("Enter Available Counts: ");
 		String availableCount = scanner.next();
 		
-		System.out.println("Enter Appropriate Age: ");
+		System.out.print("Enter Appropriate Age: ");
 		String appropriateAge = scanner.next();
 		
-		System.out.println("Enter Minimum Number of PLayers: ");
+		System.out.print("Enter Minimum Number of PLayers: ");
 		String minPlayers = scanner.next();
 		
-		System.out.println("Enter Maximum Number of Players: ");
+		System.out.print("Enter Maximum Number of Players: ");
 		String maxPlayers = scanner.next();
 		
-		System.out.println("Enter Designer Names (Use ',' to separate the names if there is more than one name): ");
+		System.out.print("Enter Designer Names (Use ',' to separate the names if there is more than one name): ");
 		String designers = scanner.next();
 		
 		//validate
@@ -164,11 +173,12 @@ public class AppMenu {
 	 */
 	
 	public char figureMenu() {
-		System.out.println("Enter Figure Classification: \n" 
+		System.out.println("\nEnter Figure Classification: \n" 
 						+ "Action (A)\n" 
 						+ "Doll (D)\n" 
 						+ "Historic (H)\n");
-		this.figureClassi = scanner.next().charAt(0);
+		System.out.print("Enter Option: ");
+		this.figureClassi = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return figureClassi;
 	}
@@ -179,11 +189,13 @@ public class AppMenu {
 	 */
 	
 	public char animalsMenu() {
-		System.out.println("Enter Animal Size: " 
-						+ "Small (S)" 
-						+ "Medium (M)" 
-						+ "Large (L)");
-		this.animalSize = scanner.next().charAt(0);
+		System.out.println("\nEnter Animal Size:\n" 
+						+ "Small (S)\n" 
+						+ "Medium (M)\n" 
+						+ "Large (L)\n");
+		System.out.print("Enter Option: ");
+
+		this.animalSize = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return animalSize;
 	}
@@ -194,15 +206,26 @@ public class AppMenu {
 	 */
 
 	public char puzzlesMenu() {
-		System.out.println("Enter Puzzle-Type: " 
-						+ "Mechanical (M)" 
-						+ "Cryptic (C)" 
-						+ "Logic (L)" 
-						+ "Trivia (T)" 
-						+ "Riddle (R)");
-		 this.puzzleType = scanner.next().charAt(0);
+		System.out.println("\nEnter Puzzle-Type:\n " 
+						+ "Mechanical (M)\n" 
+						+ "Cryptic (C)\n" 
+						+ "Logic (L)\n" 
+						+ "Trivia (T)\n" 
+						+ "Riddle (R)\n");
+		System.out.print("Enter Option: ");
+		 this.puzzleType = scanner.next().toUpperCase().charAt(0);
 		 //validate
 		return puzzleType;
+	}
+	
+	/**
+	 * Asking user for to purchase the toy
+	 * @return
+	 */
+	public char purchaseToy() {
+		System.out.print("\nWould you like to purchase this toy? ");
+		this.choice = scanner.next().toUpperCase().charAt(0);
+		return choice;
 	}
 	
 	/**

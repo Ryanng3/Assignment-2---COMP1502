@@ -67,8 +67,9 @@ public class ToyManager {
 	/**
 	 * Based on the users choice, it will direct user to the next menu
 	 * Uses switch case to direct flow
+	 * @throws IOException 
 	 */
-	public void launchApplication() {
+	public void launchApplication() throws IOException {
 		appMen.openingMsg();				//Opens up the main menu and prompts user for selection
 		boolean flag = true;
 		int option;
@@ -97,13 +98,14 @@ public class ToyManager {
 	/**
 	 * Based on users choice, it will prompt the user the next menu
 	 * Uses switch case to direct flow
+	 * @throws IOException 
 	 */
-	public void search() {						
+	public void search() throws IOException {						
 		int option = appMen.showSubMenu();	//Prompts user the search menu
 		
 		switch(option) {
 		case 1:
-//			searchBySN();
+			searchBySN(toy);
 			break;
 		case 2:
 //			searchByName();
@@ -116,5 +118,39 @@ public class ToyManager {
 			break;
 		}
 	}
+	
+	/**
+	 * Takes in the list of toys and searches by the Serial Number
+	 * Prompts the user if they want to purchase it
+	 * @param toy
+	 * @throws IOException
+	 */
+	public void searchBySN(ArrayList<Toys>toy) throws IOException {
+		boolean found = false;
+		String serialNum = appMen.searchSerialNumber();
+		Long searchSN = Long.parseLong(serialNum);
+		for (Toys i : toy) {
+			if(i.getSerialNumber() == searchSN) {
+				if(i.getAvailableCount() > 0) {
+					System.out.println("\nHere are the search results:\n");
+					System.out.println("\n" + i);
+					char choice = appMen.purchaseToy();
+					
+					if(choice == 'Y') {
+						i.setAvailableCount(i.getAvailableCount() - 1);
+						System.out.println("\nThe Transaction Successfully Terminated!");
+						launchApplication();
+					}else {
+						search();
+					}
+					found = true;
+				}else {
+					System.out.println("Toy is not available");
+					found = true;
+				}
+			}
+		}
+	}
+
 	
 }
