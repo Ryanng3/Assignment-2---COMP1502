@@ -286,6 +286,7 @@ public class ToyManager {
 						System.out.println("Toy is not available");
 						found = true;
 					}
+					
 				}
 			}
 		}
