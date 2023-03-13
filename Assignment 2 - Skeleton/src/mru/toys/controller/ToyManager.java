@@ -151,6 +151,54 @@ public class ToyManager {
 			}
 		}
 	}
+	
+	/**
+	 * Searches through the list of toys that contains the specified word
+	 * asks user to purchase toy
+	 * @param toy
+	 * @throws IOException
+	 */
 
+	public void searchByName(ArrayList<Toys>toy) throws IOException {
+		ArrayList<Long> serialNumList = new ArrayList<>();
+		ArrayList<Toys> toyList = new ArrayList();
+		boolean found = false;
+		String searchToy = appMen.searchToyName();
+		for (Toys i : toy) {
+			if(i.getName().toLowerCase().contains(searchToy.toLowerCase())) {
+				serialNumList.add(((Toys) i).getSerialNumber());
+				toyList.add(i);
+			}
+		}
+		int a = 1;
+		System.out.println("\nHere are the results:\n");
+		for (Toys i : toyList) {
+			System.out.println("(" + a + ")" + i);
+			a++;
+		}
+		int choose = appMen.whichToy();
+		for (Toys i: toy) {
+			if (i.getSerialNumber() == serialNumList.get(choose - 1)){
+				if(i.getAvailableCount() > 0) {
+					System.out.println("\nChosen toy: " + i);
+					char choice = appMen.purchaseToy();
+					
+					if(choice == 'Y') {
+						i.setAvailableCount(i.getAvailableCount() - 1);
+						System.out.println("\nThe transaction Successfully Terminated!");
+						search();
+					}else {
+						search();
+					}
+					found = true;
+				}else {
+					System.out.println("Toy is not available");
+					found = true;
+				}
+			}
+		}
+		
+	}
+	
 	
 }

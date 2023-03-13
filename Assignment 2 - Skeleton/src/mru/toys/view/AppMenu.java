@@ -13,7 +13,6 @@ public class AppMenu {
 	char animalSize;
 	char puzzleType;
 	int input;
-	char choice;
 	
 	/**
 	 * creating a instance of Scanner and assigning it to a variable
@@ -225,7 +224,13 @@ public class AppMenu {
 	 */
 	public char purchaseToy() {
 		System.out.print("\nWould you like to purchase this toy? ");
-		this.choice = scanner.next().toUpperCase().charAt(0);
+		char choice = scanner.next().toUpperCase().charAt(0);
+		return choice;
+	}
+	
+	public Integer whichToy() {
+		System.out.print("\nWhich Toy would you like to purchase? ");
+		int choice = scanner.nextInt();
 		return choice;
 	}
 	
