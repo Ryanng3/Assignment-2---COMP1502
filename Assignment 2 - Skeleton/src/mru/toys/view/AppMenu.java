@@ -5,13 +5,6 @@ import java.util.Scanner;
 public class AppMenu {
 	
 	Scanner scanner;
-	String newToy;
-	String serialNumber;
-	String toyName;
-	char toyType;
-	char figureClassi;
-	char animalSize;
-	char puzzleType;
 	
 	/**
 	 * creating a instance of Scanner and assigning it to a variable
@@ -75,9 +68,9 @@ public class AppMenu {
 						
 		int input = scanner.nextInt();
 			if (input > 4) {
-				System.out.println("This is not a valid option! Try again.");
-			} else{
-				System.out.println("This is not an Integer number! Try again.);");
+				System.out.print("This is not a valid option! Try again.");
+			} else if (!Integer.toString(input).equals("1") && !Integer.toString(input).equals("2") && !Integer.toString(input).equals("3") && !Integer.toString(input).equals("4")){
+				System.out.print("This is not an Integer number! Try again.);");
 			}
 		return input;
 	}
@@ -88,8 +81,8 @@ public class AppMenu {
 	 */
 	
 	public String searchSerialNumber() {
-		System.out.println("\nEnter Serial Number: ");
-		this.serialNumber = scanner.next();
+		System.out.print("\nEnter Serial Number: ");
+		String serialNumber = scanner.next();
 		//validate
 		return serialNumber;
 	}
@@ -101,7 +94,7 @@ public class AppMenu {
 	
 	public String searchToyName() {
 		System.out.print("\nEnter Toy Name: ");
-		this.toyName = scanner.next();
+		String toyName = scanner.next();
 		//validate
 		return toyName;
 	}
@@ -113,21 +106,22 @@ public class AppMenu {
 	
 	public char searchType() {
 		System.out.println("\nEnter Toy Type:\n"
-						+  "(F) Figures"
-						+  "(A) Animals"
-						+  "(P) Puzzles"
+						+  "(F) Figures\n"
+						+  "(A) Animals\n"
+						+  "(P) Puzzles\n"
 						+  "(B) BoardGames");
 		System.out.print("\nEnter Option: ");
-		this.toyType = scanner.next().toUpperCase().charAt(0);
+		char toyType = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return toyType;
 	}
 	
 	public char searchFigure() {
-		System.out.println("\nEnter Figure type:\n");
-		System.out.println("(A) Action");
-		System.out.println("(D) Doll");
-		System.out.println("(H) Historic");
+		System.out.println("\nEnter Figure type:\n"
+						+  "(A) Action\n"
+						+  "(D) Doll\n"
+						+  "(H) Historic\n");
+		System.out.print("Enter Option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
 		
 		while(option != 'A' && option != 'D' && option != 'H') {
@@ -138,10 +132,10 @@ public class AppMenu {
 	}
 	
 	public char searchAnimal() {
-		System.out.println("\nEnter Animal Size:\n");
-		System.out.println("(S) Small");
-		System.out.println("(M) Medium");
-		System.out.println("(L) Large");
+		System.out.println("\nEnter Animal Size:\n"
+						+  "(S) Small\n"
+						+  "(M) Medium\n"
+						+  "(L) Large");
 		System.out.print("\nEnter option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
 		
@@ -153,12 +147,13 @@ public class AppMenu {
 	}
 	
 	public char searchPuzzle() {
-		System.out.println("\nEnter Puzzle Type:\n");
-		System.out.println("(M) Mechanical");
-		System.out.println("(C) Cryptic");
-		System.out.println("(L) Logic");
-		System.out.println("(T) Trivia");
-		System.out.println("(R) Riddle");
+		System.out.println("\nEnter Puzzle Type:\n"
+						+  "(M) Mechanical\n"
+						+  "(C) Cryptic\n"
+						+  "(L) Logic\n"
+						+  "(T) Trivia\n"
+						+  "(R) Riddle");
+		System.out.print("Enter Option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
 		
 		while(option != 'M' && option != 'C' && option != 'L' && option != 'T' && option != 'R') {
@@ -182,38 +177,15 @@ public class AppMenu {
 	 * @return the new toy's characteristics all in one variable 
 	 */
 	
-	public String addNewToy() {
-		
-		System.out.print("Enter Serial Number: ");
-		String serialNumber = scanner.next();
-		
-		System.out.print("Enter Toy Name: ");
-		String name = scanner.next();
-		
-		System.out.print("Enter Toy Brand: ");
-		String brand = scanner.next();
-		
-		System.out.print("Enter Toy Price: ");
-		String price = scanner.next();
-		
-		System.out.print("Enter Available Counts: ");
-		String availableCount = scanner.next();
-		
-		System.out.print("Enter Appropriate Age: ");
-		String appropriateAge = scanner.next();
-		
-		System.out.print("Enter Minimum Number of PLayers: ");
-		String minPlayers = scanner.next();
-		
-		System.out.print("Enter Maximum Number of Players: ");
-		String maxPlayers = scanner.next();
-		
-		System.out.print("Enter Designer Names (Use ',' to separate the names if there is more than one name): ");
-		String designers = scanner.next();
-		
-		//validate
-		newToy = serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + appropriateAge + ", " + minPlayers + ", " + maxPlayers + ", " + designers;
-		return newToy;
+	public char addNewToy() {
+		System.out.println("\nWhich type of toy are you adding?\n"
+						+  "(F) Figure\n"
+						+  "(A) Animal\n"
+						+  "(P) Puzzle\n"
+						+  "(B) Board Game");
+		System.out.print("\nEnter option: ");
+		char option = scanner.next().toUpperCase().charAt(0);
+		return option;
 		
 	}
 	
@@ -228,7 +200,7 @@ public class AppMenu {
 						+ "Doll (D)\n" 
 						+ "Historic (H)\n");
 		System.out.print("Enter Option: ");
-		this.figureClassi = scanner.next().toUpperCase().charAt(0);
+		char figureClassi = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return figureClassi;
 	}
@@ -245,7 +217,7 @@ public class AppMenu {
 						+ "Large (L)\n");
 		System.out.print("Enter Option: ");
 
-		this.animalSize = scanner.next().toUpperCase().charAt(0);
+		char animalSize = scanner.next().toUpperCase().charAt(0);
 		//validate
 		return animalSize;
 	}
@@ -263,7 +235,7 @@ public class AppMenu {
 						+ "Trivia (T)\n" 
 						+ "Riddle (R)\n");
 		System.out.print("Enter Option: ");
-		 this.puzzleType = scanner.next().toUpperCase().charAt(0);
+		 char puzzleType = scanner.next().toUpperCase().charAt(0);
 		 //validate
 		return puzzleType;
 	}
@@ -288,6 +260,100 @@ public class AppMenu {
 		return choice;
 	}
 	
+	public String addNewFigure() {
+		System.out.print("\nEnter Serial Number: ");
+		long serialNumber = scanner.nextLong();
+		System.out.print("\nEnter Toy Name: ");
+		String toyName = scanner.next();
+		System.out.print("\nEnter Toy Brand: ");
+		String toyBrand = scanner.next();
+		System.out.print("\nEnter Toy Price: ");
+		double toyPrice = scanner.nextDouble();
+		System.out.print("\nEnter Available Counts: ");
+		int availableCounts = scanner.nextInt();
+		System.out.print("\nEnter Appropriate Age: ");
+		int appropraiteAge = scanner.nextInt();
+		System.out.print("\nEnter Classification: ");
+		char classification = scanner.next().toUpperCase().charAt(0);
+		
+		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + classification;
+		
+		return newToy;
+	}
+	
+	public String addNewAnimal() {
+		System.out.print("\nEnter Serial Number: ");
+		long serialNumber = scanner.nextLong();
+		System.out.print("\nEnter Toy Name: ");
+		String toyName = scanner.next();
+		System.out.print("\nEnter Toy Brand: ");
+		String toyBrand = scanner.next();
+		System.out.print("\nEnter Toy Price: ");
+		double toyPrice = scanner.nextDouble();
+		System.out.print("\nEnter Available Counts: ");
+		int availableCounts = scanner.nextInt();
+		System.out.print("\nEnter Appropriate Age: ");
+		int appropraiteAge = scanner.nextInt();
+		System.out.print("\nEnter type of Material: ");
+		String material = scanner.next();
+		System.out.print("\nEnter size of Animal: ");
+		char size = scanner.next().toUpperCase().charAt(0);
+		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + material + ";" + size;
+		
+		return newToy;
+	}
+	
+	public String addNewPuzzle() {
+		System.out.print("\nEnter Serial Number: ");
+		long serialNumber = scanner.nextLong();
+		System.out.print("\nEnter Toy Name: ");
+		String toyName = scanner.next();
+		System.out.print("\nEnter Toy Brand: ");
+		String toyBrand = scanner.next();
+		System.out.print("\nEnter Toy Price: ");
+		double toyPrice = scanner.nextDouble();
+		System.out.print("\nEnter Available Counts: ");
+		int availableCounts = scanner.nextInt();
+		System.out.print("\nEnter Appropriate Age: ");
+		int appropraiteAge = scanner.nextInt();
+		System.out.print("\nEnter Puzzle type: ");
+		char type = scanner.next().toUpperCase().charAt(0);
+		
+		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + type;
+		
+		return newToy;
+	}
+	
+	public String addNewBoardGame() {
+		System.out.print("\nEnter Serial Number: ");
+		long serialNumber = scanner.nextLong();
+		System.out.print("\nEnter Toy Name: ");
+		String toyName = scanner.next();
+		System.out.print("\nEnter Toy Brand: ");
+		String toyBrand = scanner.next();
+		System.out.print("\nEnter Toy Price: ");
+		double toyPrice = scanner.nextDouble();
+		System.out.print("\nEnter Available Counts: ");
+		int availableCounts = scanner.nextInt();
+		System.out.print("\nEnter Appropriate Age: ");
+		int appropraiteAge = scanner.nextInt();
+		System.out.print("\nEnter Minimum Number of Players: ");
+		int minPlayers = scanner.nextInt();
+		System.out.print("\nEnter Maximum Number of Players: ");
+		int maxPlayers = scanner.nextInt();
+		System.out.print("\nEnter Designer Names (Use ',' to seperate the name if there is more than one name): " );
+		String designer = scanner.next();
+		
+		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + minPlayers + "-" + maxPlayers + ";" + designer;
+		
+		return newToy;
+	}
+	
+	public char removeToy() {
+		System.out.print("\nDo you want to remove it (Y/N)? ");
+		char option = scanner.next().toUpperCase().charAt(0);
+		return option;
+	}
 	/**
 	 * Void method that prints a closing message 
 	 */

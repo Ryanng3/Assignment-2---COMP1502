@@ -2,6 +2,7 @@ package mru.toys.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,12 +17,14 @@ public class ToyManager {
 	final String FILE_PATH = "res/toys.txt"; 
 	ArrayList<Toys> toy;
 	AppMenu appMen;
+	Scanner input;
 	
 	public ToyManager() throws IOException {		//Constructor
 		toy = new ArrayList<>();
 		appMen = new AppMenu();
 		loadData();
 		launchApplication();
+		input = new Scanner(System.in);
 	}
 	
 	/**
@@ -82,13 +85,13 @@ public class ToyManager {
 				search();
 				break;
 			case 2:
-//				addToy();
+				addToy(toy);
 				break;
 			case 3:
-//				removeToy();
+				removeToy(toy);
 				break;
 			case 4:
-//				save();
+				save(toy);
 			}
 		}
 		
@@ -108,10 +111,10 @@ public class ToyManager {
 			searchBySN(toy);
 			break;
 		case 2:
-//			searchByName();
+			searchByName(toy);
 			break;
 		case 3:
-//			searchByType();
+			searchByType(toy);
 			break;
 		case 4:
 			launchApplication();
@@ -290,6 +293,72 @@ public class ToyManager {
 				}
 			}
 		}
+	}
+	
+	public void addToy(ArrayList<Toys>toy) {
+		char option = appMen.addNewToy();
+		String[] splittedLine;
+		
+		switch (option) {
+		case 'F':
+			String addFigure = appMen.addNewFigure();
+			splittedLine = addFigure.split(";");
+			toy.add(new Figures(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+			System.out.println("New Toy Added!");
+			break;
+		case 'A':
+			String addAnimal = appMen.addNewAnimal();
+			splittedLine = addAnimal.split(";");
+			toy.add(new Animals(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
+			System.out.println("New Toy Added!");
+			break;
+		case 'P':
+			String addPuzzle = appMen.addNewPuzzle();
+			splittedLine = addPuzzle.split(";");
+			toy.add(new Puzzle(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+			System.out.println("New Toy Added!");
+
+			break;
+		case 'B':
+			String addBoardGame = appMen.addNewBoardGame();
+			splittedLine = addBoardGame.split(";");
+			toy.add(new BoardGames(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
+			break;
+		}
+	}
+	
+	public void removeToy(ArrayList<Toys>toy) throws IOException {
+		boolean found = false;
+		String serialNum = appMen.searchSerialNumber();
+		Long remove = Long.parseLong(serialNum);
+		
+		for(Toys i : toy) {
+			if (i.getSerialNumber() == remove) {
+				System.out.println("\nThis item found!");
+				System.out.println("\n\t" + i);
+				char choice = appMen.removeToy();
+				
+				if (choice == 'Y') {
+					toy.remove(i);
+					System.out.println("\nItem Removed!\n");
+					launchApplication();
+				}else {
+					launchApplication();
+				}
+				found = true;
+			}else {
+				System.out.println("Item cannot be found");
+				found = true;
+			}
+		}
+	}
+
+	public void save(ArrayList<Toys>toy) throws IOException {
+		PrintWriter pw = new PrintWriter(FILE_PATH);
+		for (Toys i : toy) {
+			pw.println(i.format());
+		}
+		pw.close();
 	}
 	
 }
