@@ -282,6 +282,10 @@ public class AppMenu {
 		return choice;
 	}
 	
+	/**
+	 * Prompts user which toy to purchase
+	 * @return
+	 */
 	public int whichToy() {
 		System.out.print("\nWhich Toy would you like to purchase? ");
 		int choice = scanner.nextInt();
