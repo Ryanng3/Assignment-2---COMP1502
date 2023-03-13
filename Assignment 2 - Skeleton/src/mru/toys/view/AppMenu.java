@@ -12,7 +12,6 @@ public class AppMenu {
 	char figureClassi;
 	char animalSize;
 	char puzzleType;
-	int input;
 	
 	/**
 	 * creating a instance of Scanner and assigning it to a variable
@@ -47,12 +46,12 @@ public class AppMenu {
 						+  "(4)  Save & Exit\n");
 		System.out.print("Enter Option: ");
 		
-			input = scanner.nextInt();
+			int input = scanner.nextInt();
 			if (input != 1 && input!= 2 && input!= 3 && input!= 4) {
 				System.out.print("This is not a valid option! Try again.");
 				input = scanner.nextInt();
 			} else if (!Integer.toString(input).equals("1") && !Integer.toString(input).equals("2") && !Integer.toString(input).equals("3") && !Integer.toString(input).equals("4")){
-				System.out.print("This is not an Integer number! Try again.);");
+				System.out.print("This is not an Integer number! Try again.");
 				input = scanner.nextInt();
 			}
 		
@@ -74,15 +73,12 @@ public class AppMenu {
 						+  "(4)  Back to Main Menu\n");
 		System.out.print("Enter Option: ");
 						
-		
-		if (scanner.hasNextInt()) {
-			this.input = scanner.nextInt();
+		int input = scanner.nextInt();
 			if (input > 4) {
 				System.out.println("This is not a valid option! Try again.");
 			} else{
 				System.out.println("This is not an Integer number! Try again.);");
 			}
-		}
 		return input;
 	}
 	
