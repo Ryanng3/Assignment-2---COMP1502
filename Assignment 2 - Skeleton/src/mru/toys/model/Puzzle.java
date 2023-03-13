@@ -36,7 +36,7 @@ public class Puzzle extends Toys {
 	 */
 	@Override
 	public String format() {
-		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + puzzleTypeChar;
+		return serialNumber + ";" + name + ";" + brand + ";" + price + ";" + availableCount + ";" + ageAppropriate + ";" + puzzleTypeChar;
 	}
 	
 	/**

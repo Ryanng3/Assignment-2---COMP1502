@@ -35,7 +35,7 @@ public class Figures extends Toys {
 	 */
 	@Override
 	public String format() {
-		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + classification;
+		return serialNumber + ";" + name + ";" + brand + ";" + price + ";" + availableCount + ";" + ageAppropriate + ";" + classification;
 	}
 	
 	/**

@@ -92,6 +92,9 @@ public class ToyManager {
 				break;
 			case 4:
 				save(toy);
+				appMen.closingMsg();
+				flag = false;
+				System.exit(0);
 			}
 		}
 		

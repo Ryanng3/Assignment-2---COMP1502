@@ -94,7 +94,7 @@ public class BoardGames extends Toys {
 	 */
 	@Override
 	public String format() {
-		return serialNumber + ", " + name + ", " + brand + ", " + price + ", " + availableCount + ", " + ageAppropriate + ", " + numOfPlayers + ", "  + designers;
+		return serialNumber + ";" + name + ";" + brand + ";" + price + ";" + availableCount + ";" + ageAppropriate + ";" + numOfPlayers + ";"  + designers;
 	}
 	
 	/**
