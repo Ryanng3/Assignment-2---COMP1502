@@ -127,6 +127,60 @@ public class AppMenu {
 		return toyType;
 	}
 	
+	public char searchFigure() {
+		System.out.println("\nEnter Figure type:\n");
+		System.out.println("(A) Action");
+		System.out.println("(D) Doll");
+		System.out.println("(H) Historic");
+		char option = scanner.next().toUpperCase().charAt(0);
+		
+		while(option != 'A' && option != 'D' && option != 'H') {
+			System.out.print("Invalid Option. Enter option here: ");
+			option = scanner.next().toUpperCase().charAt(0);
+		}
+		return option;
+	}
+	
+	public char searchAnimal() {
+		System.out.println("\nEnter Animal Size:\n");
+		System.out.println("(S) Small");
+		System.out.println("(M) Medium");
+		System.out.println("(L) Large");
+		System.out.print("\nEnter option: ");
+		char option = scanner.next().toUpperCase().charAt(0);
+		
+		while(option != 'S' && option != 'M' && option != 'L') {
+			System.out.print("Invalid Option. Enter option here: ");
+			option = scanner.next().toUpperCase().charAt(0);
+		}
+		return option;
+	}
+	
+	public char searchPuzzle() {
+		System.out.println("\nEnter Puzzle Type:\n");
+		System.out.println("(M) Mechanical");
+		System.out.println("(C) Cryptic");
+		System.out.println("(L) Logic");
+		System.out.println("(T) Trivia");
+		System.out.println("(R) Riddle");
+		char option = scanner.next().toUpperCase().charAt(0);
+		
+		while(option != 'M' && option != 'C' && option != 'L' && option != 'T' && option != 'R') {
+			System.out.print("Invalid Option. Enter option here: ");
+			option = scanner.next().toUpperCase().charAt(0);
+		}
+		return option;
+	}
+	
+	public String searchBoardGame() {
+		System.out.println("\nEnter minimum players: ");
+		int min = scanner.nextInt();
+		System.out.println("\nEnter maximum players: ");
+		int max = scanner.nextInt();
+		
+		String numOfPlayers = min + "-" + max;
+		return numOfPlayers;
+	}
 	/**
 	 * Asking the user for the new toy's characteristics and assigning to individual variables 
 	 * @return the new toy's characteristics all in one variable 
@@ -228,7 +282,7 @@ public class AppMenu {
 		return choice;
 	}
 	
-	public Integer whichToy() {
+	public int whichToy() {
 		System.out.print("\nWhich Toy would you like to purchase? ");
 		int choice = scanner.nextInt();
 		return choice;

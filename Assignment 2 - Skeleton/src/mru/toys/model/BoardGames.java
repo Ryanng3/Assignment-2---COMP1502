@@ -67,7 +67,7 @@ public class BoardGames extends Toys {
 	 * @return the min players and max players as a string 
 	 */
 	
-	public String getNumofPlayers() {
+	public String getNumOfPlayers() {
 		return minPlayers + " - " + maxPlayers;
 	}
 	

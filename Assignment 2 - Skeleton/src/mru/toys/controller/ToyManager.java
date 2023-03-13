@@ -160,12 +160,12 @@ public class ToyManager {
 	 */
 
 	public void searchByName(ArrayList<Toys>toy) throws IOException {
-		ArrayList<Long> serialNumList = new ArrayList<>();
-		ArrayList<Toys> toyList = new ArrayList();
+		ArrayList<Long> serialNumList = new ArrayList<>();		
+		ArrayList<Toys> toyList = new ArrayList<>();
 		boolean found = false;
 		String searchToy = appMen.searchToyName();
 		for (Toys i : toy) {
-			if(i.getName().toLowerCase().contains(searchToy.toLowerCase())) {
+			if(i.getName().toLowerCase().contains(searchToy.toLowerCase())) {	//searches for the name
 				serialNumList.add(((Toys) i).getSerialNumber());
 				toyList.add(i);
 			}
@@ -173,7 +173,7 @@ public class ToyManager {
 		int a = 1;
 		System.out.println("\nHere are the results:\n");
 		for (Toys i : toyList) {
-			System.out.println("(" + a + ")" + i);
+			System.out.println("(" + a + ")" + i);		//prints out the list of toys and user will select one
 			a++;
 		}
 		int choose = appMen.whichToy();
@@ -181,9 +181,9 @@ public class ToyManager {
 			if (i.getSerialNumber() == serialNumList.get(choose - 1)){
 				if(i.getAvailableCount() > 0) {
 					System.out.println("\nChosen toy: " + i);
-					char choice = appMen.purchaseToy();
-					
-					if(choice == 'Y') {
+					char choice = appMen.purchaseToy();					//Asks user if they would like the purchase toy
+						
+					if(choice == 'Y') {	
 						i.setAvailableCount(i.getAvailableCount() - 1);
 						System.out.println("\nThe transaction Successfully Terminated!");
 						search();
@@ -200,5 +200,95 @@ public class ToyManager {
 		
 	}
 	
+	/**
+	 * This method searches based on the type of toy the user wants to search for
+	 * @param toy
+	 * @throws IOException
+	 */
+	public void searchByType(ArrayList<Toys>toy) throws IOException {
+		ArrayList<Long> serialNumList = new ArrayList<>();
+		ArrayList<Toys> toyList = new ArrayList<>();
+		char searchType = appMen.searchType();
+		
+		switch(searchType) {														
+		case 'F':
+			char classification = appMen.searchFigure();							
+			for (Toys i : toy) {
+				if(i instanceof Figures) {										
+					if(((Figures) i).getClassification() == classification) {
+						serialNumList.add(((Figures) i).getSerialNumber());			//Add to list
+						toyList.add(i);									
+					}
+				}
+			}
+			break;
+		case 'A':
+			char size = appMen.searchAnimal();
+			for (Toys i : toy) {
+				if (i instanceof Animals) {
+					if (((Animals) i).getSize() == size) {
+						serialNumList.add(((Animals) i).getSerialNumber());
+						toyList.add(i);
+					}
+				}
+			}
+			break;
+		case 'P':
+			char type = appMen.searchPuzzle();
+			for (Toys i: toy) {
+				if (i instanceof Puzzle) {
+					if (((Puzzle) i).getPuzzleType() == type) {
+						serialNumList.add(((Puzzle) i).getSerialNumber());
+						toyList.add(i);
+					}
+				}
+			}
+			break;
+		case 'B':
+			String num = appMen.searchBoardGame();
+			for (Toys i : toy) {
+				if (i instanceof BoardGames) {
+					if (((BoardGames) i).getNumOfPlayers().equals(num)) {
+						serialNumList.add(((BoardGames) i).getSerialNumber());
+						toyList.add(i);
+					}
+				}
+			}
+			break;
+		}
+		
+		int a = 1;
+		for (Toys i : toyList) {
+			System.out.println(" (" + a + ")" + i);
+			a++;
+		}
+		boolean found = false;
+		while(!found) {
+			int option = appMen.whichToy();
+			for (Toys i : toy) {
+				if(i.getSerialNumber() == serialNumList.get(option - 1)) { //Checks to see if the serial number matches
+					if(i.getAvailableCount() > 0) {
+						System.out.println("Choosen toy: " + i);
+						char choice = appMen.purchaseToy();
+						
+						if(choice == 'Y') {
+							i.setAvailableCount(i.getAvailableCount() - 1);
+							System.out.println("\nThe transaction Successfully Terminated!");
+							search();
+							
+						}else {
+							search();
+						}
+						found = true;
+						
+					}
+					else {
+						System.out.println("Toy is not available");
+						found = true;
+					}
+				}
+			}
+		}
+	}
 	
 }
