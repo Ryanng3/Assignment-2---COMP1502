@@ -131,7 +131,7 @@ public class ToyManager {
 	public void searchBySN(ArrayList<Toys>toy) throws IOException {
 		boolean found = false;
 		String serialNum = appMen.searchSerialNumber();
-		Long searchSN = Long.parseLong(serialNum);
+		long searchSN = Long.parseLong(serialNum);
 		for (Toys i : toy) {
 			if(i.getSerialNumber() == searchSN) {
 				if(i.getAvailableCount() > 0) {
@@ -330,7 +330,7 @@ public class ToyManager {
 	public void removeToy(ArrayList<Toys>toy) throws IOException {
 		boolean found = false;
 		String serialNum = appMen.searchSerialNumber();
-		Long remove = Long.parseLong(serialNum);
+		long remove = Long.parseLong(serialNum);
 		
 		for(Toys i : toy) {
 			if (i.getSerialNumber() == remove) {
