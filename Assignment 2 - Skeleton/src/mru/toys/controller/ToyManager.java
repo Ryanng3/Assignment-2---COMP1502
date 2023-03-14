@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import mru.toys.exceptions.NegativeException;
 import mru.toys.model.Animals;
 import mru.toys.model.BoardGames;
 import mru.toys.model.Figures;
@@ -305,28 +306,48 @@ public class ToyManager {
 		
 		switch (option) {
 		case 'F':
-			String addFigure = appMen.addNewFigure();
-			splittedLine = addFigure.split(";");
-			toy.add(new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));		
-			System.out.println("New Toy Added!");
+			String addFigure;
+			try {
+				addFigure = appMen.addNewFigure();
+				splittedLine = addFigure.split(";");
+				toy.add(new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));		
+				System.out.println("New Toy Added!");
+			} catch (NegativeException e) {
+				System.out.println("\nError: " + e.getMessage());
+			}
 			break;
 		case 'A':
-			String addAnimal = appMen.addNewAnimal();
-			splittedLine = addAnimal.split(";");
-			toy.add(new Animals(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
-			System.out.println("New Toy Added!");
+			String addAnimal;
+			try {
+				addAnimal = appMen.addNewAnimal();
+				splittedLine = addAnimal.split(";");
+				toy.add(new Animals(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
+				System.out.println("New Toy Added!");
+			} catch (NegativeException e) {
+				System.out.println("\nError: " + e.getMessage());
+			}
 			break;
 		case 'P':
-			String addPuzzle = appMen.addNewPuzzle();
-			splittedLine = addPuzzle.split(";");
-			toy.add(new Puzzle(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
-			System.out.println("New Toy Added!");
+			try {
+				String addPuzzle = appMen.addNewPuzzle();
+				splittedLine = addPuzzle.split(";");
+				toy.add(new Puzzle(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+				System.out.println("New Toy Added!");
+			} catch (NegativeException e) {
+				System.out.println("\nError: " + e.getMessage());
+			}
+			
 
 			break;
 		case 'B':
-			String addBoardGame = appMen.addNewBoardGame();
-			splittedLine = addBoardGame.split(";");
-			toy.add(new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
+			try {
+				String addBoardGame = appMen.addNewBoardGame();
+				splittedLine = addBoardGame.split(";");
+				toy.add(new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
+				System.out.println("New Toy Added!");
+			} catch (NegativeException e) {
+				System.out.println("\nError: " + e.getMessage());
+			}
 			break;
 		}
 	}
