@@ -73,9 +73,9 @@ public class AppMenu {
 						
 		int input = scanner.nextInt();
 			if (input > 4) {
-				System.out.print("This is not a valid option! Try again.");
+				System.out.print("This is not a valid option! Try again");
 			} else if (!Integer.toString(input).equals("1") && !Integer.toString(input).equals("2") && !Integer.toString(input).equals("3") && !Integer.toString(input).equals("4")){
-				System.out.print("This is not an Integer number! Try again.);");
+				System.out.print("This is not an Integer number! Try again);");
 			}
 		return input;
 	}
@@ -88,6 +88,10 @@ public class AppMenu {
 	public String searchSerialNumber() {
 		System.out.print("\nEnter Serial Number: ");
 		String serialNumber = scanner.next();
+		if (serialNumber.length() != 10 && serialNumber.matches("[0-9]+")) {
+			System.out.print("\nThis is not a valid option! Try again");
+			serialNumber = scanner.next();
+		}
 		//validate
 		return serialNumber;
 	}
@@ -206,22 +210,6 @@ public class AppMenu {
 		return numOfPlayers;
 	}
 	
-	/**
-	 * Asking the user for the new toy's characteristics and assigning to individual variables 
-	 * @return the new toy's characteristics all in one variable 
-	 */
-	
-	public char addNewToy() {
-		System.out.println("\nWhich type of toy are you adding?\n"
-						+  "(F) Figure\n"
-						+  "(A) Animal\n"
-						+  "(P) Puzzle\n"
-						+  "(B) Board Game");
-		System.out.print("\nEnter option: ");
-		char option = scanner.next().toUpperCase().charAt(0);
-		return option;
-		
-	}
 	
 	/**
 	 * Asking user for the figure's classification and assigns to variable 

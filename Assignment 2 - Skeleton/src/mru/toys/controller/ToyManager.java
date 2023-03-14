@@ -312,7 +312,7 @@ public class ToyManager {
 				addFigure = appMen.addNewFigure();
 				splittedLine = addFigure.split(";");
 				toy.add(new Figures(option , splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
-				System.out.println("New Toy Added!");
+				System.out.println("\nNew Toy Added!");
 			} catch (NegativeException e) {
 				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
@@ -323,7 +323,7 @@ public class ToyManager {
 				addAnimal = appMen.addNewAnimal();
 				splittedLine = addAnimal.split(";");
 				toy.add(new Animals(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5], splittedLine[6].charAt(0)));
-				System.out.println("New Toy Added!");
+				System.out.println("\nNew Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			}
@@ -332,7 +332,7 @@ public class ToyManager {
 				String addPuzzle = appMen.addNewPuzzle();
 				splittedLine = addPuzzle.split(";");
 				toy.add(new Puzzle(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5].charAt(0)));
-				System.out.println("New Toy Added!");
+				System.out.println("\nNew Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			}
@@ -341,7 +341,7 @@ public class ToyManager {
 				String addBoardGame = appMen.addNewBoardGame();
 				splittedLine = addBoardGame.split(";");
 				toy.add(new BoardGames(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5], splittedLine[6]));
-				System.out.println("New Toy Added!");
+				System.out.println("\nNew Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			} catch (MinPlayersException e) {
