@@ -14,20 +14,20 @@ import mru.toys.model.Toys;
 
 class ToysTest {
 	ArrayList<Toys> toy = new ArrayList<>();
-	Animals animalsTest = new Animals (2835360879L, "Cow", "Game Assassin", 19.52, 3, 7, "Plastic", 'M');
+	Animals animalsTest = new Animals ("2835360879", "Cow", "Game Assassin", 19.52, 3, 7, "Plastic", 'M');
 	
 	@Test
 	void serialNumber() {
-		for(Toys t : toy) {
-			t.setSerialNumber(2835360879L);
-			assertEquals(2835360879L, t.getSerialNumber());
+		for(Toys i: toy) {
+			i.setSerialNumber("2835360879");
+			assertEquals("2835360879", i.getSerialNumber());
 		}
 	}
 	
 	@Test void Name() {
-		for(Toys t : toy) {
-			t.setName("Cow");
-			assertEquals("Cow", t.getName());
+		for(Toys i : toy) {
+			i.setName("Cow");
+			assertEquals("Cow", i.getName());
 		}
 	}
 }

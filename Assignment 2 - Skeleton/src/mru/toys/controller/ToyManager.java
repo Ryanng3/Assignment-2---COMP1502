@@ -17,14 +17,12 @@ public class ToyManager {
 	final String FILE_PATH = "res/toys.txt"; 
 	ArrayList<Toys> toy;
 	AppMenu appMen;
-	Scanner input;
 	
 	public ToyManager() throws IOException {		//Constructor
 		toy = new ArrayList<>();
 		appMen = new AppMenu();
 		loadData();
 		launchApplication();
-		input = new Scanner(System.in);
 	}
 	
 	/**
@@ -48,16 +46,16 @@ public class ToyManager {
 				
 				
 				if(firstSN == '0' || firstSN == '1') {
-					Toys showToy = new Figures(Long.parseLong(SN), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0));
+					Toys showToy = new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0));
 					toy.add(showToy);
 				}else if(firstSN == '2' || firstSN == '3') {
-					Toys showToy = new Animals(Long.parseLong(SN), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0));
+					Toys showToy = new Animals(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0));
 					toy.add(showToy);
 				}else if (firstSN == '4' || firstSN == '5' || firstSN == '6') {
-					Toys showToy = new Puzzle(Long.parseLong(SN), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0));
+					Toys showToy = new Puzzle(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0));
 					toy.add(showToy);
 				}else if (firstSN == '7' || firstSN == '8' || firstSN == '9') {
-					Toys showToy = new BoardGames(Long.parseLong(SN), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
+					Toys showToy = new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
 					toy.add(showToy);
 				}
 				
@@ -133,10 +131,9 @@ public class ToyManager {
 	 */
 	public void searchBySN(ArrayList<Toys>toy) throws IOException {
 		boolean found = false;
-		String serialNum = appMen.searchSerialNumber();
-		long searchSN = Long.parseLong(serialNum);
+		String searchSN = appMen.searchSerialNumber();
 		for (Toys i : toy) {
-			if(i.getSerialNumber() == searchSN) {
+			if(i.getSerialNumber().equals(searchSN)) {
 				if(i.getAvailableCount() > 0) {
 					System.out.println("\nHere are the search results:\n");
 					System.out.println("\n" + i);
@@ -166,7 +163,7 @@ public class ToyManager {
 	 */
 
 	public void searchByName(ArrayList<Toys>toy) throws IOException {
-		ArrayList<Long> serialNumList = new ArrayList<>();		
+		ArrayList<String> serialNumList = new ArrayList<>();		
 		ArrayList<Toys> toyList = new ArrayList<>();
 		boolean found = false;
 		String searchToy = appMen.searchToyName();
@@ -212,7 +209,7 @@ public class ToyManager {
 	 * @throws IOException
 	 */
 	public void searchByType(ArrayList<Toys>toy) throws IOException {
-		ArrayList<Long> serialNumList = new ArrayList<>();
+		ArrayList<String> serialNumList = new ArrayList<>();
 		ArrayList<Toys> toyList = new ArrayList<>();
 		char searchType = appMen.searchType();
 		
@@ -298,6 +295,10 @@ public class ToyManager {
 		}
 	}
 	
+	/**
+	 * This method prompts user from the app menu and adds the toy to the list
+	 * @param toy
+	 */
 	public void addToy(ArrayList<Toys>toy) {
 		char option = appMen.addNewToy();
 		String[] splittedLine;
@@ -306,37 +307,41 @@ public class ToyManager {
 		case 'F':
 			String addFigure = appMen.addNewFigure();
 			splittedLine = addFigure.split(";");
-			toy.add(new Figures(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+			toy.add(new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));		
 			System.out.println("New Toy Added!");
 			break;
 		case 'A':
 			String addAnimal = appMen.addNewAnimal();
 			splittedLine = addAnimal.split(";");
-			toy.add(new Animals(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
+			toy.add(new Animals(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
 			System.out.println("New Toy Added!");
 			break;
 		case 'P':
 			String addPuzzle = appMen.addNewPuzzle();
 			splittedLine = addPuzzle.split(";");
-			toy.add(new Puzzle(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+			toy.add(new Puzzle(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
 			System.out.println("New Toy Added!");
 
 			break;
 		case 'B':
 			String addBoardGame = appMen.addNewBoardGame();
 			splittedLine = addBoardGame.split(";");
-			toy.add(new BoardGames(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
+			toy.add(new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
 			break;
 		}
 	}
 	
+	/**
+	 * Removes toy from the list of toys
+	 * @param toy
+	 * @throws IOException
+	 */
 	public void removeToy(ArrayList<Toys>toy) throws IOException {
 		boolean found = false;
-		String serialNum = appMen.searchSerialNumber();
-		long remove = Long.parseLong(serialNum);
+		String serialNum = appMen.searchSerialNumber();		//prompt from appMenu
 		
-		for(Toys i : toy) {
-			if (i.getSerialNumber() == remove) {
+		for(Toys i : toy) {									
+			if (i.getSerialNumber().equals(serialNum)) {
 				System.out.println("\nThis item found!");
 				System.out.println("\n\t" + i);
 				char choice = appMen.removeToy();
@@ -356,7 +361,12 @@ public class ToyManager {
 		}
 	}
 
-	public void save(ArrayList<Toys>toy) throws IOException {
+	/**
+	 * This method writes and updates the existing txt file
+	 * @param toy
+	 * @throws IOException
+	 */
+	public void save(ArrayList<Toys>toy) throws IOException {		//Saves to txt files
 		PrintWriter pw = new PrintWriter(FILE_PATH);
 		for (Toys i : toy) {
 			pw.println(i.format());

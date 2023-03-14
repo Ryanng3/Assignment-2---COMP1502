@@ -21,7 +21,7 @@ public class BoardGames extends Toys {
 	 * @param designers the Board games's designers 
 	 */
 	
-	public BoardGames(Long serialNumber, String name, String brand, double price, int availableCount,
+	public BoardGames(String serialNumber, String name, String brand, double price, int availableCount,
 			int ageAppropriate, String numOfPlayers, String designers) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		

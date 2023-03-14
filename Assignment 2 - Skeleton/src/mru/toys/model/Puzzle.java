@@ -17,7 +17,7 @@ public class Puzzle extends Toys {
 	 */
 	
 
-	public Puzzle(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char puzzleType) {
+	public Puzzle(String serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char puzzleType) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		this.puzzleTypeChar = puzzleType;
 	}

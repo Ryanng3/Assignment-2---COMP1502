@@ -9,7 +9,7 @@ public class Animals extends Toys {
 	
 	//Constructor for the class animal
 	//Inherits characteristics from superclass Animals
-	public Animals(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, String materialType, char size) {
+	public Animals(String serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, String materialType, char size) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		// TODO Auto-generated constructor stub
 		this.materialType = materialType;

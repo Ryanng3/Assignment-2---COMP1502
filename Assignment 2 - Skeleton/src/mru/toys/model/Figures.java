@@ -16,7 +16,7 @@ public class Figures extends Toys {
 	 * @param classification the figures's classification
 	 */
 	
-	public Figures(Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char classification) {
+	public Figures(String serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate, char classification) {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		this.classification = classification;
 	}

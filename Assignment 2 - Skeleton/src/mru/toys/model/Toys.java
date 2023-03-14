@@ -1,7 +1,7 @@
 package mru.toys.model;
 
 public abstract class Toys {	//This is a superclass
-	public Long serialNumber;
+	public String serialNumber;
 	public String name;
 	public String brand;
 	public double price;
@@ -9,7 +9,7 @@ public abstract class Toys {	//This is a superclass
 	public int ageAppropriate;
 	
 	//Constructor for the Toys Class
-	public Toys (Long serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate) {
+	public Toys (String serialNumber, String name, String brand, double price, int availableCount, int ageAppropriate) {
 		this.serialNumber = serialNumber;
 		this.name = name;
 		this.brand = brand;
@@ -22,7 +22,7 @@ public abstract class Toys {	//This is a superclass
 	 * Takes the value in the serialNumber field and returns it
 	 * @return a Long that represents the serial number of the toy
 	 */
-	public Long getSerialNumber() {
+	public String getSerialNumber() {
 		return serialNumber;
 	}
 	
@@ -30,7 +30,7 @@ public abstract class Toys {	//This is a superclass
 	 * Takes the serial number of the toy and sets it to the serialNumber field
 	 * @param serialNumber
 	 */
-	public void setSerialNumber(Long serialNumber) {
+	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
 	
@@ -114,6 +114,12 @@ public abstract class Toys {	//This is a superclass
 		this.ageAppropriate = ageAppropriate;
 	}
 	
+	/**
+	 * Returns the characteristics of the toys as a string
+	 */
+	public String toString() {
+		return "SN: " + serialNumber + ", Name: " + name + ", Brand: " + brand + ", Price: " + price + ", Available Count: " + availableCount + ", Age-Appropriate: " + ageAppropriate;
+	}
 	
 	/**
 	 * This method formats the basic characteristics of the toy
