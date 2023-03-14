@@ -25,7 +25,7 @@ class FiguresTest {
 	@Test void name() {
 		for(Toys i : toy) {
 			i.setName("Horse");
-			assertEquals("Horse", i.getName());
+			assertEquals("Horse", i.getName());   
 		} 
 	}
 		
