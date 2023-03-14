@@ -309,13 +309,6 @@ public class AppMenu {
 	 */
 	
 	public String addNewFigure() throws NegativeException {
-		System.out.print("\nEnter Serial Number: ");
-		long serialNumber = scanner.nextLong();
-		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != '0' && String.valueOf(serialNumber).charAt(0) != '1')) {
-			System.out.println("\nPlease enter 10 digit number starting with 0 or 1 !");
-			System.out.print("\nEnter Serial Number: ");
-			serialNumber = scanner.nextLong();
-		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -324,8 +317,7 @@ public class AppMenu {
 		double toyPrice = scanner.nextDouble();
 		if (toyPrice < 0) {
 			throw new NegativeException();
-		}System.out.print("\nEnter Toy Price: ");
-		toyPrice = scanner.nextDouble();
+		}
 		System.out.print("\nEnter Available Counts: ");
 		int availableCounts = scanner.nextInt();
 		System.out.print("\nEnter Appropriate Age: ");
@@ -333,7 +325,7 @@ public class AppMenu {
 		System.out.print("\nEnter Classification: ");
 		char classification = scanner.next().toUpperCase().charAt(0);
 		
-		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + classification;
+		String newToy = ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + classification;
 		
 		return newToy;
 	}
@@ -347,13 +339,7 @@ public class AppMenu {
 	 */
 	
 	public String addNewAnimal() throws NegativeException {
-		System.out.print("\nEnter Serial Number: ");
-		long serialNumber = scanner.nextLong();
-		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != '2' && String.valueOf(serialNumber).charAt(0) != '3')) {
-			System.out.println("\nPlease enter 10 digit number starting with 2 or 3 !");
-			System.out.print("\nEnter Serial Number: ");
-			serialNumber = scanner.nextLong();
-		}
+
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -371,7 +357,7 @@ public class AppMenu {
 		String material = scanner.next();
 		System.out.print("\nEnter size of Animal: ");
 		char size = scanner.next().toUpperCase().charAt(0);
-		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + material + ";" + size;
+		String newToy =  ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + material + ";" + size;
 		
 		return newToy;
 	}
@@ -385,13 +371,7 @@ public class AppMenu {
 	 */
 	
 	public String addNewPuzzle() throws NegativeException {
-		System.out.print("\nEnter Serial Number: ");
-		long serialNumber = scanner.nextLong();
-		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != '4' && String.valueOf(serialNumber).charAt(0) != '5' && String.valueOf(serialNumber).charAt(0) != '6') ) {
-			System.out.println("\nPlease enter 10 digit number starting with 4, 5 or 6 !");
-			System.out.print("\nEnter Serial Number: ");
-			serialNumber = scanner.nextLong();
-		}
+
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -408,7 +388,7 @@ public class AppMenu {
 		System.out.print("\nEnter Puzzle type: ");
 		char type = scanner.next().toUpperCase().charAt(0);
 		
-		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + type;
+		String newToy = ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + type;
 		
 		return newToy;
 	}
@@ -424,13 +404,6 @@ public class AppMenu {
 	 */
 	
 	public String addNewBoardGame() throws NegativeException, MinPlayersException {
-		System.out.print("\nEnter Serial Number: ");
-		long serialNumber = scanner.nextLong();
-		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != '7' && String.valueOf(serialNumber).charAt(0) != '8' && String.valueOf(serialNumber).charAt(0) != '9') ) {
-			System.out.println("\nPlease enter 10 digit number starting with 7, 8 or 9 !");
-			System.out.print("\nEnter Serial Number: ");
-			serialNumber = scanner.nextLong();
-		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -456,7 +429,7 @@ public class AppMenu {
 		System.out.print("\nEnter Designer Names (Use ',' to seperate the name if there is more than one name): " );
 		String designer = scanner.next();
 		
-		String newToy = serialNumber + ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + minPlayers + "-" + maxPlayers + ";" + designer;
+		String newToy = ";" + toyName + ";" + toyBrand + ";" + toyPrice + ";" + availableCounts + ";" + appropraiteAge + ";" + minPlayers + "-" + maxPlayers + ";" + designer;
 		
 		return newToy;
 	}

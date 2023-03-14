@@ -302,59 +302,57 @@ public class ToyManager {
 	 * @param toy
 	 * @throws MinPlayersException 
 	 */
-	public void addToy(ArrayList<Toys>toy)  {
-		char option = appMen.addNewToy();
+	public void addToy(ArrayList<Toys>toy) {
+		String option = appMen.searchSerialNumber();
+		char SN = option.charAt(0);
 		String[] splittedLine;
-		
-		switch (option) {
-		case 'F':
+		if (SN == '0' || SN == '1') {
 			String addFigure;
 			try {
 				addFigure = appMen.addNewFigure();
 				splittedLine = addFigure.split(";");
-				toy.add(new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));		
+				toy.add(new Figures(option , splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
 				System.out.println("New Toy Added!");
 			} catch (NegativeException e) {
+				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
 			}
-			break;
-		case 'A':
+		}else if (SN == '2' || SN == '3') {
 			String addAnimal;
 			try {
 				addAnimal = appMen.addNewAnimal();
 				splittedLine = addAnimal.split(";");
-				toy.add(new Animals(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7].charAt(0)));
+				toy.add(new Animals(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5], splittedLine[6].charAt(0)));
 				System.out.println("New Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			}
-			break;
-		case 'P':
+		}else if (SN == '4' || SN == '5' || SN == '6') {
 			try {
 				String addPuzzle = appMen.addNewPuzzle();
 				splittedLine = addPuzzle.split(";");
-				toy.add(new Puzzle(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
+				toy.add(new Puzzle(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5].charAt(0)));
 				System.out.println("New Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			}
-			
-
-			break;
-		case 'B':
+		}else if (SN == '7' || SN == '8' || SN == '9') {
 			try {
 				String addBoardGame = appMen.addNewBoardGame();
 				splittedLine = addBoardGame.split(";");
-				toy.add(new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
+				toy.add(new BoardGames(option, splittedLine[0], splittedLine[1], Double.parseDouble(splittedLine[2]), Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), splittedLine[5], splittedLine[6]));
 				System.out.println("New Toy Added!");
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			} catch (MinPlayersException e) {
 				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
+
 			}
-			break;
 		}
+		
+			
+		
 	}
 	
 	/**
