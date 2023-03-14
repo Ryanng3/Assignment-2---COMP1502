@@ -16,17 +16,18 @@ class ToysTest {
 	ArrayList<Toys> toy = new ArrayList<>();
 	Animals animalsTest = new Animals (2835360879L, "Cow", "Game Assassin", 19.52, 3, 7, "Plastic", 'M');
 	
-	@BeforeEach
-	void preTest() throws IOException {
-	new ToyManager().loadData();
-		
-	}
-	
 	@Test
 	void serialNumber() {
 		for(Toys t : toy) {
 			t.setSerialNumber(2835360879L);
 			assertEquals(2835360879L, t.getSerialNumber());
+		}
+	}
+	
+	@Test void Name() {
+		for(Toys t : toy) {
+			t.setName("Cow");
+			assertEquals("Cow", t.getName());
 		}
 	}
 }
