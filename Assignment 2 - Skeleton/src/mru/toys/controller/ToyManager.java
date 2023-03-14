@@ -18,7 +18,7 @@ import mru.toys.view.AppMenu;
 public class ToyManager {
 	final String FILE_PATH = "res/toys.txt"; 
 	ArrayList<Toys> toy;
-	AppMenu appMen;
+	AppMenu appMen; 
 	
 	public ToyManager() throws IOException {		//Constructor
 		toy = new ArrayList<>();
