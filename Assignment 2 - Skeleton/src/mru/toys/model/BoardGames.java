@@ -1,6 +1,6 @@
 package mru.toys.model;
 
-import mru.toys.exceptions.MinPlayersException;
+
 
 public class BoardGames extends Toys {
 	
@@ -52,13 +52,7 @@ public class BoardGames extends Toys {
 	 * @param maxPlayers the max players of the game 
 	 */
 	
-	public void setNumOfPlayers(int minPlayers, int maxPlayers) throws MinPlayersException {
-		
-		if (minPlayers > maxPlayers) {
-			throw new MinPlayersException("Error: Minimum number of Players cannot "
-					+ "be greater than maximum number of players");
-		}
-		
+	public void setNumOfPlayers(int minPlayers, int maxPlayers) {
 		this.minPlayers = minPlayers;
 		this.maxPlayers = maxPlayers;
 	}

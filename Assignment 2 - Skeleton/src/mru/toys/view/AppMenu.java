@@ -2,6 +2,7 @@ package mru.toys.view;
 
 import java.util.Scanner;
 
+import mru.toys.exceptions.MinPlayersException;
 import mru.toys.exceptions.NegativeException;
 
 public class AppMenu {
@@ -9,7 +10,7 @@ public class AppMenu {
 	Scanner scanner;
 	
 	/**
-	 * creating a instance of Scanner and assigning it to a variable
+	 * constructor that creates an instance of Scanner and assigns it to a variable 
 	 */
 	
 	public AppMenu() {
@@ -27,7 +28,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Displaying the main menu for users and validating their input 
+	 * Displaying the main menu for users and validating their input
+	 * urges user to input only integers and other characters
 	 * @return the user's input as an int 
 	 */
 	
@@ -56,6 +58,7 @@ public class AppMenu {
 	
 	/**
 	 * Displaying the sub menu for users and validating their input 
+	 * urges user to input only integers and other characters
 	 * @return the user's input as an int
 	 */
 	
@@ -78,7 +81,7 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for serial number of toy 
+	 * Asks user for serial number of toy and assigns it to a variable 
 	 * @return the entered serial number as a string 
 	 */
 	
@@ -90,7 +93,7 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for name of toy 
+	 * Asks user for name of toy and assigns it to a variable 
 	 * @return the entered toy name as a string 
 	 */
 	
@@ -102,8 +105,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for type of toy 
-	 * @return the entered type of toy as a string
+	 * Asks user for type of toy and assigns it to a variable 
+	 * @return the entered type of toy as a char
 	 */
 	
 	public char searchType() {
@@ -117,6 +120,13 @@ public class AppMenu {
 		//validate
 		return toyType;
 	}
+	
+	/**
+	 * Prints search figure sub menu and converts the entered 
+	 * input to uppercase while assigning to a variable
+	 * validates the input 
+	 * @return the user's input as char 
+	 */
 	
 	public char searchFigure() {
 		System.out.println("\nEnter Figure type:\n"
@@ -133,6 +143,13 @@ public class AppMenu {
 		return option;
 	}
 	
+	/**
+	 * Prints search animal sub menu and converts the entered 
+	 * input to uppercase while assigning to a variable
+	 * validates the input 
+	 * @return the user's input as char 
+	 */
+	
 	public char searchAnimal() {
 		System.out.println("\nEnter Animal Size:\n"
 						+  "(S) Small\n"
@@ -147,6 +164,13 @@ public class AppMenu {
 		}
 		return option;
 	}
+	
+	/**
+	 * Prints search puzzle sub menu and converts the entered 
+	 * input to uppercase while assigning to a variable
+	 * validates the input 
+	 * @return the user's input as char 
+	 */
 	
 	public char searchPuzzle() {
 		System.out.println("\nEnter Puzzle Type:\n"
@@ -165,6 +189,13 @@ public class AppMenu {
 		return option;
 	}
 	
+	/**
+	 * Asks user for min and max players of board game and 
+	 * assigns to respective variables 
+	 * saves the min and max with hyphen in the numOfPlayers variable
+	 * @return the numOfPlayers which has the min and max 
+	 */
+	
 	public String searchBoardGame() {
 		System.out.println("\nEnter minimum players: ");
 		int min = scanner.nextInt();
@@ -174,6 +205,7 @@ public class AppMenu {
 		String numOfPlayers = min + "-" + max;
 		return numOfPlayers;
 	}
+	
 	/**
 	 * Asking the user for the new toy's characteristics and assigning to individual variables 
 	 * @return the new toy's characteristics all in one variable 
@@ -192,7 +224,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for the figure's classification
+	 * Asking user for the figure's classification and assigns to variable 
+	 * while converting to uppercase 
 	 * @return the figure's classification as a char
 	 */
 	
@@ -208,7 +241,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for the animal's size 
+	 * Asking user for the animal's size and assigns to variable 
+	 * while converting to uppercase 
 	 * @return the animal's size as a char
 	 */
 	
@@ -225,7 +259,8 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for the puzzle's type 
+	 * Asking user for the puzzle's type and assigns to variable 
+	 * while converting to uppercase 
 	 * @return the puzzle's type as a char
 	 */
 
@@ -243,9 +278,11 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Asking user for to purchase the toy
-	 * @return
+	 * Asking user for to purchase the toy and assigns to variable 
+	 * while converting to uppercase 
+	 * @return the choice as a char, whether user buys or doesn't buy the toy
 	 */
+	
 	public char purchaseToy() {
 		System.out.print("\nWould you like to purchase this toy? ");
 		char choice = scanner.next().toUpperCase().charAt(0);
@@ -253,14 +290,23 @@ public class AppMenu {
 	}
 	
 	/**
-	 * Prompts user which toy to purchase
-	 * @return
+	 * Prompts user asking which toy to would they like to purchase
+	 * @return the user's choice of toy 
 	 */
+	
 	public int whichToy() {
 		System.out.print("\nWhich Toy would you like to purchase? ");
 		int choice = scanner.nextInt();
 		return choice;
 	}
+	
+	/**
+	 * Asks user to enter each characteristic of the new figure 
+	 * validates their input and saves to respective variable 
+	 * Concatenates all the characteristics into one variable with commas
+	 * @return the characteristics of the figure as newToy
+	 * @throws NegativeException a custom exception if the user's price is negative 
+	 */
 	
 	public String addNewFigure() throws NegativeException {
 		System.out.print("\nEnter Serial Number: ");
@@ -292,6 +338,14 @@ public class AppMenu {
 		return newToy;
 	}
 	
+	/**
+	 * Asks user to enter each characteristic of the new animal toy  
+	 * validates their input and saves to respective variable 
+	 * Concatenates all the characteristics into one variable with commas
+	 * @return the characteristics of the animal toy as newToy
+	 * @throws NegativeException a custom exception if the user's price is negative 
+	 */
+	
 	public String addNewAnimal() throws NegativeException {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
@@ -322,6 +376,14 @@ public class AppMenu {
 		return newToy;
 	}
 	
+	/**
+	 * Asks user to enter each characteristic of the new puzzle  
+	 * validates their input and saves to respective variable 
+	 * Concatenates all the characteristics into one variable with commas  
+	 * @return the characteristics of the puzzle as newToy
+	 * @throws NegativeException a custom exception if the user's price is negative 
+	 */
+	
 	public String addNewPuzzle() throws NegativeException {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
@@ -351,7 +413,17 @@ public class AppMenu {
 		return newToy;
 	}
 	
-	public String addNewBoardGame() throws NegativeException {
+	/**
+	 * Asks user to enter each characteristic of the new board game   
+	 * validates their input and saves to respective variable 
+	 * Concatenates all the characteristics into one variable with commas  
+	 * @return the characteristics of the board game as newToy
+	 * @throws NegativeException a custom price exception if the user's price is negative 
+	 * @throws MinPlayersException a custom players exception if the 
+	 * min players is greater than the max players of the board game
+	 */
+	
+	public String addNewBoardGame() throws NegativeException, MinPlayersException {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
 		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != '7' && String.valueOf(serialNumber).charAt(0) != '8' && String.valueOf(serialNumber).charAt(0) != '9') ) {
@@ -376,6 +448,11 @@ public class AppMenu {
 		int minPlayers = scanner.nextInt();
 		System.out.print("\nEnter Maximum Number of Players: ");
 		int maxPlayers = scanner.nextInt();
+		
+		if (minPlayers > maxPlayers) {
+			throw new MinPlayersException();
+		}
+		
 		System.out.print("\nEnter Designer Names (Use ',' to seperate the name if there is more than one name): " );
 		String designer = scanner.next();
 		
@@ -384,10 +461,16 @@ public class AppMenu {
 		return newToy;
 	}
 	
+	/**
+	 * Asks user if they would like to remove a toy 
+	 * @return the user's choice as a char 
+	 */
+	
 	public char removeToy() {
 		System.out.print("\nDo you want to remove it (Y/N)? ");
 		char option = scanner.next().toUpperCase().charAt(0);
 		return option;
+		
 	}
 	/**
 	 * Void method that prints a closing message 

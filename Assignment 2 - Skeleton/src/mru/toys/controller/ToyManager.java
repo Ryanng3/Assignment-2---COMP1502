@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import mru.toys.exceptions.MinPlayersException;
 import mru.toys.exceptions.NegativeException;
 import mru.toys.model.Animals;
 import mru.toys.model.BoardGames;
@@ -299,8 +300,9 @@ public class ToyManager {
 	/**
 	 * This method prompts user from the app menu and adds the toy to the list
 	 * @param toy
+	 * @throws MinPlayersException 
 	 */
-	public void addToy(ArrayList<Toys>toy) {
+	public void addToy(ArrayList<Toys>toy)  {
 		char option = appMen.addNewToy();
 		String[] splittedLine;
 		
@@ -346,6 +348,9 @@ public class ToyManager {
 				toy.add(new BoardGames(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]));
 				System.out.println("New Toy Added!");
 			} catch (NegativeException e) {
+				System.out.println("\nError: " + e.getMessage());
+			} catch (MinPlayersException e) {
+				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
 			}
 			break;
