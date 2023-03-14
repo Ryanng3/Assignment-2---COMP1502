@@ -125,7 +125,7 @@ public class AppMenu {
 		char option = scanner.next().toUpperCase().charAt(0);
 		
 		while(option != 'A' && option != 'D' && option != 'H') {
-			System.out.print("Invalid Option. Enter option here: ");
+			System.out.print("This is not a valid option! Try again.");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -140,7 +140,7 @@ public class AppMenu {
 		char option = scanner.next().toUpperCase().charAt(0);
 		
 		while(option != 'S' && option != 'M' && option != 'L') {
-			System.out.print("Invalid Option. Enter option here: ");
+			System.out.print("This is not a valid option! Try again.");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -157,7 +157,7 @@ public class AppMenu {
 		char option = scanner.next().toUpperCase().charAt(0);
 		
 		while(option != 'M' && option != 'C' && option != 'L' && option != 'T' && option != 'R') {
-			System.out.print("Invalid Option. Enter option here: ");
+			System.out.print("This is not a valid option! Try again.");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -263,6 +263,11 @@ public class AppMenu {
 	public String addNewFigure() {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
+		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != 0 || String.valueOf(serialNumber).charAt(0) != 1)) {
+			System.out.println("\nPlease enter 10 digit number starting with 0 or 1 !");
+			System.out.print("\nEnter Serial Number: ");
+			serialNumber = scanner.nextLong();
+		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -284,6 +289,11 @@ public class AppMenu {
 	public String addNewAnimal() {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
+		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != 2 || String.valueOf(serialNumber).charAt(0) != 3)) {
+			System.out.println("\nPlease enter 10 digit number starting with 0 or 1 !");
+			System.out.print("\nEnter Serial Number: ");
+			serialNumber = scanner.nextLong();
+		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -306,6 +316,11 @@ public class AppMenu {
 	public String addNewPuzzle() {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
+		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != 4 || String.valueOf(serialNumber).charAt(0) != 5 || String.valueOf(serialNumber).charAt(0) != 6) ) {
+			System.out.println("\nPlease enter 10 digit number starting with 0 or 1 !");
+			System.out.print("\nEnter Serial Number: ");
+			serialNumber = scanner.nextLong();
+		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
@@ -327,6 +342,11 @@ public class AppMenu {
 	public String addNewBoardGame() {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
+		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != 7 || String.valueOf(serialNumber).charAt(0) != 8 || String.valueOf(serialNumber).charAt(0) != 9) ) {
+			System.out.println("\nPlease enter 10 digit number starting with 0 or 1 !");
+			System.out.print("\nEnter Serial Number: ");
+			serialNumber = scanner.nextLong();
+		}
 		System.out.print("\nEnter Toy Name: ");
 		String toyName = scanner.next();
 		System.out.print("\nEnter Toy Brand: ");
