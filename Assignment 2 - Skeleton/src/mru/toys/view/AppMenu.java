@@ -2,6 +2,8 @@ package mru.toys.view;
 
 import java.util.Scanner;
 
+import mru.toys.exceptions.NegativeException;
+
 public class AppMenu {
 	
 	Scanner scanner;
@@ -260,7 +262,7 @@ public class AppMenu {
 		return choice;
 	}
 	
-	public String addNewFigure() {
+	public String addNewFigure() throws NegativeException {
 		System.out.print("\nEnter Serial Number: ");
 		long serialNumber = scanner.nextLong();
 		while ((String.valueOf(serialNumber).length() != 10) && (String.valueOf(serialNumber).charAt(0) != 0 || String.valueOf(serialNumber).charAt(0) != 1)) {
@@ -274,6 +276,10 @@ public class AppMenu {
 		String toyBrand = scanner.next();
 		System.out.print("\nEnter Toy Price: ");
 		double toyPrice = scanner.nextDouble();
+		if (toyPrice < 0) {
+			throw new NegativeException();
+		}System.out.print("\nEnter Toy Price: ");
+		toyPrice = scanner.nextDouble();
 		System.out.print("\nEnter Available Counts: ");
 		int availableCounts = scanner.nextInt();
 		System.out.print("\nEnter Appropriate Age: ");
