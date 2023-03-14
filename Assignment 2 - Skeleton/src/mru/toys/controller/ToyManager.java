@@ -31,7 +31,7 @@ public class ToyManager {
 	 * This method loads the txt file into an ArrayList and splits the ";" and stores it into its corresponding attributes.
 	 * @throws IOException
 	 */
-	private void loadData() throws IOException{		//Loads txt file into an ArrayList
+	public void loadData() throws IOException{		//Loads txt file into an ArrayList
 		File file = new File(FILE_PATH);
 		String currentLine;
 		String[] splittedLine; 

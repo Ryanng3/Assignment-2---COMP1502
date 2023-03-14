@@ -6,7 +6,7 @@ public class BoardGames extends Toys {
 	
 	public int minPlayers;
 	public int maxPlayers;
-	public String[] designers;
+	public String designers;
 	public String numOfPlayers;
 	
 	/**
@@ -26,7 +26,7 @@ public class BoardGames extends Toys {
 		super(serialNumber, name, brand, price, availableCount, ageAppropriate);
 		
 		this.numOfPlayers = numOfPlayers;
-		this.designers = designers.split(",");
+		this.designers = designers;
 	}
 	
 	/**
@@ -75,7 +75,7 @@ public class BoardGames extends Toys {
 	 * @return the list of designers of the board game
 	 */
 	
-	public String[] getDesigners() {
+	public String getDesigners() {
 		return designers;
 	}
 	
@@ -84,7 +84,7 @@ public class BoardGames extends Toys {
 	 * @param designers the list of designers 
 	 */
 
-	public void setDesigners(String[] designers) {
+	public void setDesigners(String designers) {
 		this.designers = designers;
 	}
 	

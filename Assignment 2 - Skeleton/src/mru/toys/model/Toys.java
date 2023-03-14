@@ -114,19 +114,11 @@ public abstract class Toys {	//This is a superclass
 		this.ageAppropriate = ageAppropriate;
 	}
 	
-	/**
-	 * This method returns a String that displays the basic characteristics of a toy
-	 */
-	public String toString() {
-		return "Serial Number: " + serialNumber + ", Name: " + name + ", Brand: " + brand + ", Price: " + price + ", Available Count: " + availableCount + ", Age Appropriate: " + ageAppropriate;
-	}
 	
 	/**
 	 * This method formats the basic characteristics of the toy
 	 * @return a String that displays the basic characteristics of the toy
 	 */
-	public String format() {
-		return serialNumber + ";" + name + ";" + brand + ";" + price + ";" + availableCount + ";" + ageAppropriate;
-	}
+	public abstract String format();
 	
 }
