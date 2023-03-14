@@ -23,7 +23,7 @@ class BoardGamesTest {
 	}
 	
 	@Test void name() {
-		for(Toys i : toy) {
+		for(Toys i : toy) { 
 			i.setName("Doom: The Boardgame");
 			assertEquals("Doom: The Boardgame", i.getName());
 		}
