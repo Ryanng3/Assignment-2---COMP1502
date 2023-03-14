@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import mru.toys.exceptions.NegativeException;
 import mru.toys.model.Animals;
 import mru.toys.model.BoardGames;
 import mru.toys.model.Figures;
@@ -303,14 +302,10 @@ public class ToyManager {
 	public void addToy(ArrayList<Toys>toy) {
 		char option = appMen.addNewToy();
 		String[] splittedLine;
-		String addFigures;
+		
 		switch (option) {
 		case 'F':
-			try {
-				addFigures = appMen.addNewFigure();
-			} catch (NegativeException e) {
-				e.getMessage();
-			}
+			String addFigure = appMen.addNewFigure();
 			splittedLine = addFigure.split(";");
 			toy.add(new Figures(splittedLine[0], splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));		
 			System.out.println("New Toy Added!");
