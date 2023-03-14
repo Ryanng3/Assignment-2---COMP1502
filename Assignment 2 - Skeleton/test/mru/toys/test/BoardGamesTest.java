@@ -16,7 +16,7 @@ class BoardGamesTest {
 	
 	@Test
 	void serialNumber() {
-		for(Toys i: toy) {
+		for(Toys i: toy) { 
 			i.setSerialNumber("7734720369");
 			assertEquals("7734720369", i.getSerialNumber());
 		}
