@@ -306,7 +306,7 @@ public class ToyManager {
 		String option = appMen.searchSerialNumber();
 		char SN = option.charAt(0);
 		String[] splittedLine;
-		if (SN == '0' || SN == '1') {
+		if (SN == '0' || SN == '1') {					//Based on first digit of serial number prompts type of toy to be added
 			String addFigure;
 			try {
 				addFigure = appMen.addNewFigure();

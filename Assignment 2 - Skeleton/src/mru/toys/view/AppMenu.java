@@ -140,8 +140,8 @@ public class AppMenu {
 		System.out.print("Enter Option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
 		
-		while(option != 'A' && option != 'D' && option != 'H') {
-			System.out.print("This is not a valid option! Try again.");
+		if(option != 'A' && option != 'D' && option != 'H') {
+			System.out.print("This is not a valid option! Try again");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -161,9 +161,8 @@ public class AppMenu {
 						+  "(L) Large");
 		System.out.print("\nEnter option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
-		
-		while(option != 'S' && option != 'M' && option != 'L') {
-			System.out.print("This is not a valid option! Try again.");
+		if(option != 'S' && option != 'M' && option != 'L') {
+			System.out.print("This is not a valid option! Try again");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -185,9 +184,8 @@ public class AppMenu {
 						+  "(R) Riddle");
 		System.out.print("Enter Option: ");
 		char option = scanner.next().toUpperCase().charAt(0);
-		
-		while(option != 'M' && option != 'C' && option != 'L' && option != 'T' && option != 'R') {
-			System.out.print("This is not a valid option! Try again.");
+		if(option != 'M' && option != 'C' && option != 'L' && option != 'T' && option != 'R') {
+			System.out.print("This is not a valid option! Try again");
 			option = scanner.next().toUpperCase().charAt(0);
 		}
 		return option;
@@ -225,6 +223,10 @@ public class AppMenu {
 		System.out.print("Enter Option: ");
 		char figureClassi = scanner.next().toUpperCase().charAt(0);
 		//validate
+		if(figureClassi != 'A' && figureClassi != 'D' && figureClassi != 'H') {
+			System.out.print("This is not a valid option! Try again");
+			figureClassi = scanner.next().toUpperCase().charAt(0);
+		}
 		return figureClassi;
 	}
 	
@@ -243,6 +245,10 @@ public class AppMenu {
 
 		char animalSize = scanner.next().toUpperCase().charAt(0);
 		//validate
+		if(animalSize != 'S' && animalSize != 'M' && animalSize != 'L') {
+			System.out.print("This is not a valid option! Try again");
+			animalSize = scanner.next().toUpperCase().charAt(0);
+		}
 		return animalSize;
 	}
 	
@@ -262,6 +268,10 @@ public class AppMenu {
 		System.out.print("Enter Option: ");
 		 char puzzleType = scanner.next().toUpperCase().charAt(0);
 		 //validate
+		 if(puzzleType != 'M' && puzzleType != 'C' && puzzleType != 'L' && puzzleType != 'T' && puzzleType != 'R') {
+			 System.out.print("This is not a valid option! Try again");
+			 puzzleType = scanner.next().toUpperCase().charAt(0);
+		 }
 		return puzzleType;
 	}
 	
