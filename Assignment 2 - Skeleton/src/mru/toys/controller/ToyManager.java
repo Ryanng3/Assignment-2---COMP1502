@@ -264,12 +264,12 @@ public class ToyManager {
 		
 		int a = 1;
 		for (Toys i : toyList) {
-			System.out.println(" (" + a + ")" + i);
+			System.out.println(" (" + a + ")" + i); //Prints out the list of toys
 			a++;
 		}
 		boolean found = false;
 		while(!found) {
-			int option = appMen.whichToy();
+			int option = appMen.whichToy(); 		//Asks user which toy to purchase
 			for (Toys i : toy) {
 				if(i.getSerialNumber() == serialNumList.get(option - 1)) { //Checks to see if the serial number matches
 					if(i.getAvailableCount() > 0) {
@@ -314,7 +314,6 @@ public class ToyManager {
 				toy.add(new Figures(option , splittedLine[1], splittedLine[2], Double.parseDouble(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6].charAt(0)));
 				System.out.println("\nNew Toy Added!");
 			} catch (NegativeException e) {
-				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
 			}
 		}else if (SN == '2' || SN == '3') {
@@ -345,7 +344,6 @@ public class ToyManager {
 			} catch (NegativeException e) {
 				System.out.println("\nError: " + e.getMessage());
 			} catch (MinPlayersException e) {
-				// TODO Auto-generated catch block
 				System.out.println("\nError: " + e.getMessage());
 
 			}
